@@ -1,14 +1,14 @@
 <div>
     <h4>1-way data binding</h4>
     <h5>String interpolation</h5>
-    <i>{{message}} {{classRef.companyLocation}}</i>  <!-- {{}}-->
+    <i>{{message}} {{companyLocation}}</i>  <!-- {{}}-->
     <h5>Attribute binding</h5>
     <input type="text" [value]="message" placeholder="message">  <!-- []-->
     <input type="text" value="{{message}}" placeholder="message">
     <h4>2-way data binding and Event binding</h4>
     <input type="text" [(ngModel)]="message" placeholder="message" (keyup)="display()"> <!-- FormsModules-->
     <label for="loc">Select ur working location</label>
-    <select [(ngModel)]="classRef.companyLocation" id="loc" (change)="display()"> (eventname)
+    <select [(ngModel)]="companyLocation" id="loc" (change)="display()"> (eventname)
         <option value="rabale">Rabale</option>
         <option value="dadar">Dadar</option>
         <option value="parel">Parel</option>
@@ -16,7 +16,7 @@
     
     <p>
         <i>{{message.toUpperCase()}}</i>
-        <b>{{classRef.companyLocation}}</b>
+        <b>{{companyLocation}}</b>
     </p>
     <p>
     {{display()}}
@@ -24,5 +24,6 @@
     <p>
         <i>{{message.toUpperCase()+"this is another concatenation"}}</i> <!-- view + model-->
     </p>
-
+    <h4>Static Variable Binding</h4>
+    <i>{{classRef.counter}}</i>
 </div>

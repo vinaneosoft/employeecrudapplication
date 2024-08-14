@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { count } from 'rxjs';
 
 @Component({
   selector: 'app-learning',
@@ -8,16 +9,16 @@ import { Component } from '@angular/core';
 export class LearningComponent {
 
   message="Welcome to Neosoft";
-  static companyLocation="dadar";
+  companyLocation="dadar";
+  static counter=0;
   classRef=LearningComponent;
-
   constructor(){
+    LearningComponent.counter++;
     console.log("constructor called...........");
-    
     setTimeout(()=>this.message="Your base location is ", 4000)
   }
   display(){
     console.log(this.message);
-    console.log(LearningComponent.companyLocation);
+    console.log(this.companyLocation);
   }
 }
