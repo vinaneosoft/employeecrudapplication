@@ -12,6 +12,7 @@ export class LearningComponent {
   companyLocation="dadar";
   static counter=0;
   classRef=LearningComponent;
+  locations=["rabale", "dadar", "parel"];
   constructor(){
     LearningComponent.counter++;
     console.log("constructor called...........");
@@ -20,5 +21,12 @@ export class LearningComponent {
   display(){
     console.log(this.message);
     console.log(this.companyLocation);
+  }
+
+  imageObject={
+    path:"",
+    alternatemsg:"",
+    height:500,
+    width:400
   }
 }

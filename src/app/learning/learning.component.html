@@ -8,12 +8,15 @@
     <h4>2-way data binding and Event binding</h4>
     <input type="text" [(ngModel)]="message" placeholder="message" (keyup)="display()"> <!-- FormsModules-->
     <label for="loc">Select ur working location</label>
-    <select [(ngModel)]="companyLocation" id="loc" (change)="display()"> (eventname)
-        <option value="rabale">Rabale</option>
-        <option value="dadar">Dadar</option>
-        <option value="parel">Parel</option>
+    <select [(ngModel)]="companyLocation" id="loc" (change)="display()"> 
+        <option [value]="locations[0]">Rabale</option>
+        <option [value]="locations[1]">Dadar</option>
+        <option [value]="locations[2]">Parel</option>
     </select>
-    
+    <label for="loc2">Select ur working location</label>
+    <select [(ngModel)]="companyLocation" id="loc2" (change)="display()"> 
+        <option *ngFor="let loc of locations" [value]="loc">{{loc | uppercase }}</option>
+    </select>
     <p>
         <i>{{message.toUpperCase()}}</i>
         <b>{{companyLocation}}</b>
