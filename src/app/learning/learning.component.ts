@@ -13,6 +13,7 @@ export class LearningComponent {
   static counter=0;
   classRef=LearningComponent;
   locations=["rabale", "dadar", "parel"];
+  voterAge=0;
   constructor(){
     LearningComponent.counter++;
     console.log("constructor called...........");

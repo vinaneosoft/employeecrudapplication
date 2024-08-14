@@ -41,3 +41,36 @@
     <label for="ageNode">Enter your age</label>
     <input type="number" id="ageNode" #ageNode (keyup)="getAge(ageNode.value)">
 </div>
+<div>
+
+    <h3>Structural Directives</h3>
+    <section>
+        <h4>*ngIf</h4>
+        <input type="number" [(ngModel)]="voterAge" placeholder="enter your age">
+        <p *ngIf="voterAge>=18">
+        Welcome!!!!! Your are allowed for voting....
+        </p>
+        <p *ngIf="voterAge<18">
+            Sorry!!!!! Your are not allowed for voting....
+        </p>
+    </section>
+    <hr>
+    <section>
+        <h4>*ngIf else</h4>
+        <input type="number" [(ngModel)]="voterAge" placeholder="enter your age">
+        <p *ngIf="voterAge>=18 else elsepart">
+            Welcome!!!!! Your are allowed for voting....
+        </p>
+        <ng-template #elsepart>
+            <p >
+                Sorry!!!!! Your are not allowed for voting....
+            </p>
+            <p >
+            because your age is below 18
+            </p>
+            <p >
+                try again in next year.....
+            </p>
+        </ng-template>
+    </section>
+</div>
