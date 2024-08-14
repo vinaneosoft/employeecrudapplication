@@ -29,4 +29,16 @@ export class LearningComponent {
     height:500,
     width:400
   }
+
+  getNode(node:any){
+      console.log(node);
+      /* innertext of p */
+      console.log(node.textContent);
+      
+  }
+  getAge(nodevalue:any){
+    console.log(nodevalue);
+    console.log(typeof nodevalue); //value via trv then its always string
+    
+  }
 }

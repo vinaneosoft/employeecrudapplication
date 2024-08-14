@@ -21,12 +21,23 @@
         <i>{{message.toUpperCase()}}</i>
         <b>{{companyLocation}}</b>
     </p>
-    <p>
+   <!--  <p>
     {{display()}}
-    </p>
+    </p> -->
     <p>
         <i>{{message.toUpperCase()+"this is another concatenation"}}</i> <!-- view + model-->
     </p>
     <h4>Static Variable Binding</h4>
     <i>{{classRef.counter}}</i>
+</div>
+<div>
+    <h3>Template Reference Variables</h3>
+    <b>trv must be unique throught out the application</b>
+    <p #para>
+        India is my country. 
+        All indians are my brothers and sisters
+    </p>
+    <button type="button" (click)="getNode(para)">acces node</button><br>
+    <label for="ageNode">Enter your age</label>
+    <input type="number" id="ageNode" #ageNode (keyup)="getAge(ageNode.value)">
 </div>
