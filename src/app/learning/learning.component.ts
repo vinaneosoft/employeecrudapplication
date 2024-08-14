@@ -6,15 +6,18 @@ import { Component } from '@angular/core';
   styleUrl: './learning.component.css'
 })
 export class LearningComponent {
-  message="";
-  companyLocation="dadar";
 
-  imagePath="asdkjsks.jpg"
+  message="Welcome to Neosoft";
+  static companyLocation="dadar";
+  classRef=LearningComponent;
+
   constructor(){
-    setTimeout(()=>this.message="new message", 4000)
+    console.log("constructor called...........");
+    
+    setTimeout(()=>this.message="Your base location is ", 4000)
   }
   display(){
     console.log(this.message);
-    console.log(this.companyLocation);
+    console.log(LearningComponent.companyLocation);
   }
 }
