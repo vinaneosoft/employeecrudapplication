@@ -2,20 +2,19 @@
     <h4>1-way data binding</h4>
     <h5>String interpolation</h5>
     <i>{{message}} {{companyLocation}}</i>  <!-- {{}}-->
+    <hr>
     <h5>Attribute binding</h5>
-    <input type="text" [value]="message" placeholder="message">  <!-- []-->
-    <input type="text" value="{{message}}" placeholder="message">
+    <input [type]="inputType" [value]="message" [placeholder]="message" title="message">  <!-- []-->
+    <input type="text" value="{{message}}" placeholder="message"> <!-- not recommended-->
+    <hr>
     <h4>2-way data binding and Event binding</h4>
     <input type="text" [(ngModel)]="message" placeholder="message" (keyup)="display()"> <!-- FormsModules-->
+    <input type="radio" [value]="message" title="message"><!--  // [(ngModel)] -->
     <label for="loc">Select ur working location</label>
     <select [(ngModel)]="companyLocation" id="loc" (change)="display()"> 
         <option [value]="locations[0]">Rabale</option>
-        <option [value]="locations[1]">Dadar</option>
+        <option [value]="locations[1]">DADAR</option>
         <option [value]="locations[2]">Parel</option>
-    </select>
-    <label for="loc2">Select ur working location</label>
-    <select [(ngModel)]="companyLocation" id="loc2" (change)="display()"> 
-        <option *ngFor="let loc of locations" [value]="loc">{{loc | uppercase }}</option>
     </select>
     <p>
         <i>{{message.toUpperCase()}}</i>

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
+  selector: 'employee-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  companyName="Neosoft"
+  companyName="Neosoft Pvt. Ltd."
 }

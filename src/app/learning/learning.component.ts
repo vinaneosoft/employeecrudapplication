@@ -8,21 +8,34 @@ import { count } from 'rxjs';
 })
 export class LearningComponent {
 
+  inputType="text";
+
   message="Welcome to Neosoft";
   companyLocation="dadar";
+  constructor(){
+   // LearningComponent.counter++;
+    console.log("constructor called...........");
+    setTimeout(()=>this.message="Please Join on ur Base Location", 4000)
+  }
+
+
+  display(){
+    console.log(this.message);
+    console.log(this.companyLocation);
+    
+   // console.log(this.companyLocation);
+  }
+
+
+
+
+
   static counter=0;
   classRef=LearningComponent;
   locations=["rabale", "dadar", "parel"];
   voterAge=0;
-  constructor(){
-    LearningComponent.counter++;
-    console.log("constructor called...........");
-    setTimeout(()=>this.message="Your base location is ", 4000)
-  }
-  display(){
-    console.log(this.message);
-    console.log(this.companyLocation);
-  }
+
+
 
   imageObject={
     path:"",
