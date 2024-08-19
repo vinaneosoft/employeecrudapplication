@@ -31,6 +31,10 @@
     <i>{{classRef.counter}}</i>
 </div>
 <div>
+    <h3>Attribute Binding</h3>
+    <img [src]="imageObject.path" [alt]="imageObject.alternatemsg" title="natureimage">
+</div>
+<div>
     <h3>Template Reference Variables</h3>
     <b>trv must be unique throught out the application</b>
     <p #para>
@@ -70,6 +74,23 @@
             </p>
             <p >
                 try again in next year.....
+            </p>
+        </ng-template>
+    </section>
+    <hr>
+    <section>
+        <h4>*ngIf then else</h4>
+        <input type="number" [(ngModel)]="voterAge" placeholder="enter your age">
+         <!-- any html element/ ng-template is used to check condition, it is not part of DOM -->
+        <ng-template *ngIf="voterAge>=18 then thenblock; else elseblock"></ng-template> 
+        <ng-template #thenblock>
+            <p >
+               Welcome!!!! you are allowed for voting
+            </p>
+        </ng-template>
+        <ng-template #elseblock>
+            <p >
+                Sorry!!!!! Your are not allowed for voting....
             </p>
         </ng-template>
     </section>

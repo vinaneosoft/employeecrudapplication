@@ -26,7 +26,7 @@ export class LearningComponent {
 
   imageObject={
     path:"",
-    alternatemsg:"",
+    alternatemsg:"nature image",
     height:500,
     width:400
   }
