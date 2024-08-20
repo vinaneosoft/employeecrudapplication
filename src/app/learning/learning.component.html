@@ -153,7 +153,10 @@ but templates will be added where we are checking the condition-->
     <h3>total : {{ subject.sub1+subject.sub2+subject.sub3 }}</h3>
     <h3>percentage: {{ percentage }}%</h3>
     <article [ngSwitch]="true">
-        <div *ngSwitchCase="percentage >= 70">
+        <div *ngSwitchCase="percentage >= 70"    #distinctionNode>
+            <p class="text-success p-1">disinction</p>
+        </div>
+        <div *ngSwitchCase="percentage >= 70"    #distinctionNode>
             <p class="text-success p-1">disinction</p>
         </div>
         <div *ngSwitchCase="percentage >=60 && percentage <70">
@@ -169,4 +172,37 @@ but templates will be added where we are checking the condition-->
             <p class="text-danger text-bold p-1">Wrong Input : NO GRADE</p>
         </div>
     </article>
+    <!--
+
+    create 3 cases for RABALE, PAREL DADAR
+    take use input for company location from drop downlist
+
+    if case is for RABALE :
+        add a template to show address of Rabale office
+    if case is for PAREL :
+        add a template to show address of Parel office
+    if case is for DADAR :
+        add a template to show address of DADAR office
+    -->
+    <label for="loc2">Select ur working location</label>
+    <select [(ngModel)]="companyLocation" id="loc2" (change)="display()"> 
+        <option  *ngFor="let location of locations" [value]="location">{{location.toUpperCase()}}</option>
+    </select>
+    <b>Location is:{{companyLocation}}</b>
+    <div [ngSwitch]="companyLocation">
+        <div *ngSwitchCase="'rabale'">Sigma IT Park, Unit No. 501, TTC Industrial Area, Rabale, Navi Mumbai, Maharashtra 400701</div>
+        <div *ngSwitchCase="'dadar'"> The Ruby Tower, Senapati Bapat Marg, Dadar West, Mumbai, Maharashtra 400028</div>
+        <div *ngSwitchCase="'parel'"> Business Arcade, Sayani Road, Opp. S. T Bus Stand, Lower Parel, Mumbai, Maharashtra 400013</div>
+        <div *ngSwitchDefault> No branch at this location</div>
+    </div>
+</div>
+<div>
+    <h3>ngFor</h3>
+     <ol>
+        <li *ngFor="let location of locations">{{location}}</li> <!-- location variable scope till end of li tag -->
+     </ol>
+     <h3>ngFor</h3>
+     <ol *ngFor="let location of locations">
+        <li>{{location}}</li>
+     </ol>
 </div>

@@ -65,4 +65,5 @@ export class LearningComponent {
   getPerc(){
     this.percentage=((this.subject.sub1+this.subject.sub2+this.subject.sub3)/300)*100
   }
+
 }
