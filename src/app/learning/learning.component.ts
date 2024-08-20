@@ -12,8 +12,12 @@ export class LearningComponent {
 
   message="Welcome to Neosoft";
   companyLocation="dadar";
+  static objectCounter=0;
+
+  classRef=LearningComponent;
+
   constructor(){
-   // LearningComponent.counter++;
+    LearningComponent.objectCounter++;
     console.log("constructor called...........");
     setTimeout(()=>this.message="Please Join on ur Base Location", 4000)
   }
@@ -27,18 +31,14 @@ export class LearningComponent {
   }
 
 
-
-
-
-  static counter=0;
-  classRef=LearningComponent;
+ 
   locations=["rabale", "dadar", "parel"];
   voterAge=0;
 
 
 
   imageObject={
-    path:"",
+    path:"absolute path",
     alternatemsg:"nature image",
     height:500,
     width:400
@@ -47,12 +47,22 @@ export class LearningComponent {
   getNode(node:any){
       console.log(node);
       /* innertext of p */
-      console.log(node.textContent);
-      
+      console.log(node.innerHTML);
+      console.log(node.innerText);
+      console.log(node.children);
   }
   getAge(nodevalue:any){
     console.log(nodevalue);
-    console.log(typeof nodevalue); //value via trv then its always string
-    
+    console.log(typeof nodevalue); //value via trv  always string
+  }
+
+  subject={
+    sub1:0,
+    sub2:0,
+    sub3:0
+  }
+  percentage=0;
+  getPerc(){
+    this.percentage=((this.subject.sub1+this.subject.sub2+this.subject.sub3)/300)*100
   }
 }

@@ -1,3 +1,7 @@
+
+
+<b *ngIf="voterAge>=18 then neosoft; else webwerks"></b> <!-- template u can put any where in the application but
+but templates will be added where we are checking the condition-->
 <div>
     <h4>1-way data binding</h4>
     <h5>String interpolation</h5>
@@ -27,22 +31,22 @@
         <i>{{message.toUpperCase()+"this is another concatenation"}}</i> <!-- view + model-->
     </p>
     <h4>Static Variable Binding</h4>
-    <i>{{classRef.counter}}</i>
+    <i>{{classRef.objectCounter}}</i>
 </div>
 <div>
     <h3>Attribute Binding</h3>
-    <img [src]="imageObject.path" [alt]="imageObject.alternatemsg" title="natureimage">
+    <img [src]="imageObject.path" [alt]="imageObject.alternatemsg" [height]="imageObject.height" title="natureimage">
 </div>
 <div>
     <h3>Template Reference Variables</h3>
     <b>trv must be unique throught out the application</b>
-    <p #para>
-        India is my country. 
-        All indians are my brothers and sisters
+    <p #indiapara>
+         <i>India is my country. </i>
+        <b>All indians are my brothers and sisters</b>
     </p>
-    <button type="button" (click)="getNode(para)">acces node</button><br>
+    <button type="button" (click)="getNode(indiapara)">acces node</button><br>
     <label for="ageNode">Enter your age</label>
-    <input type="number" id="ageNode" #ageNode (keyup)="getAge(ageNode.value)">
+    <input type="number" #ageNode (keyup)="getAge(ageNode.value)" title="age">
 </div>
 <div>
 
@@ -51,7 +55,7 @@
         <h4>*ngIf</h4>
         <input type="number" [(ngModel)]="voterAge" placeholder="enter your age">
         <p *ngIf="voterAge>=18">
-        Welcome!!!!! Your are allowed for voting....
+            Welcome!!!!! Your are allowed for voting....
         </p>
         <p *ngIf="voterAge<18">
             Sorry!!!!! Your are not allowed for voting....
@@ -61,18 +65,12 @@
     <section>
         <h4>*ngIf else</h4>
         <input type="number" [(ngModel)]="voterAge" placeholder="enter your age">
-        <p *ngIf="voterAge>=18 else elsepart">
+        <p *ngIf="voterAge>=18 else elsesection">
             Welcome!!!!! Your are allowed for voting....
         </p>
-        <ng-template #elsepart>
-            <p >
+        <ng-template  #elsesection>
+            <p>
                 Sorry!!!!! Your are not allowed for voting....
-            </p>
-            <p >
-            because your age is below 18
-            </p>
-            <p >
-                try again in next year.....
             </p>
         </ng-template>
     </section>
@@ -93,4 +91,82 @@
             </p>
         </ng-template>
     </section>
+
+    <ng-template #webwerks>
+        <div>
+    
+            WEB WERKS
+        </div>
+    </ng-template>
+    
+</div>
+
+<ng-template #neosoft>
+    <div>
+        NEOSOFT
+    </div>
+</ng-template>
+
+<div>
+    <h3>ng if</h3>
+    <h1># subject Assignment</h1>
+    <h3>out of 100 for each subject</h3>
+    <label for="subject1">subject1</label>
+    <input type="number" [(ngModel)]="subject.sub1" title="num1"/>
+    />
+    <br />
+    <label for="subject2">subject2</label>
+    <input type="number" [(ngModel)]="subject.sub2" title="num1"/>
+    <br />
+    <label for="subject3">subject3</label>
+    <input type="number" [(ngModel)]="subject.sub3" title="num1"/>
+    <button type="button" (click)="getPerc()">PERCENTAGE</button>
+    <h3>total : {{ subject.sub1+subject.sub2+subject.sub3 }}</h3>
+    <h3>percentage: {{ percentage }}%</h3>
+    <div *ngIf="percentage >= 70">
+      <p class="bg-purple-700 p-3">disinction</p>
+    </div>
+    <div *ngIf="percentage >=60 && percentage <70">
+      <p class="bg-green-500 p-3">first class</p>
+    </div>
+    <div *ngIf="percentage >=40 && percentage < 60">
+      <p class="bg-yellow-500 p-3">pass</p>
+    </div>
+    <div *ngIf="percentage < 40">
+      <p class="bg-red-500 p-3">fail</p>
+    </div>
+</div>
+
+<div>
+    <h3>ngSwitch</h3>
+    <h1># subject Assignment</h1>
+    <h3>out of 100 for each subject</h3>
+    <label for="subject1">subject1</label>
+    <input type="number" [(ngModel)]="subject.sub1" title="num1"/>
+    <br />
+    <label for="subject2">subject2</label>
+    <input type="number" [(ngModel)]="subject.sub2" title="num1"/>
+    <br />
+    <label for="subject3">subject3</label>
+    <input type="number" [(ngModel)]="subject.sub3" title="num1"/>
+    <button type="button" (click)="getPerc()">PERCENTAGE</button>
+    <h3>total : {{ subject.sub1+subject.sub2+subject.sub3 }}</h3>
+    <h3>percentage: {{ percentage }}%</h3>
+    <article [ngSwitch]="true">
+        <div *ngSwitchCase="percentage >= 70">
+            <p class="text-success p-1">disinction</p>
+        </div>
+        <div *ngSwitchCase="percentage >=60 && percentage <70">
+            <p class="text-success p-1">first class</p>
+        </div>
+        <div *ngSwitchCase="percentage >=40 && percentage < 60">
+            <p class="text-warning p-1">pass</p>
+        </div>
+        <div *ngSwitchCase="percentage < 40 && percentage>=0">
+            <p class="text-danger p-1">fail</p>
+        </div>
+        <div *ngSwitchDefault>
+            <p class="text-danger text-bold p-1">Wrong Input : NO GRADE</p>
+        </div>
+    </article>
 </div>
