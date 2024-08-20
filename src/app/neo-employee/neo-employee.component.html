@@ -1,20 +1,21 @@
-
-<article class="d-flex flex-wrap">
+<label for="cardColor">Select color for card</label> :
+ <input type="color" [(ngModel)]="cardStyle.backgroundColor" id="cardColor">
+<article [ngClass]="flexClasses">
   <div class="card" [ngStyle]="cardStyle" *ngFor="let employee of neoemployees">
       <img [src]="employee.employeePic" class="card-img-top" alt="..." height="180">
       <div class="card-body">
-        <h6 class="card-title">#{{employee.empId}}</h6>
+        <h6 class="card-title" [ngStyle]="{color:'blue', 'text-decoration':'underline'}"  >#{{employee.empId}}</h6>
         <h5 class="card-title">{{employee.empName}}</h5>
         <p class="card-text">{{employee.empName}} joined on  {{employee.joiningDate}}</p>
       </div>
-      <ul class="list-group list-group-flush">
+      <ul [ngClass]="['list-group', 'list-group-flush']">
         <li class="list-group-item">basic salary : <span>{{employee.basicSalary}}</span></li>
         <li class="list-group-item">deparment code : <span>{{employee.deptCode}}</span></li>
         <li class="list-group-item">Experience : <span>{{employee.experience}}</span> years</li>
       </ul>
       <div class="card-body">
-        <a href="#" class="card-link">EDIT</a>
-        <a href="#" class="card-link">DELETE</a>
+        <a href="#" [ngClass]="cardLinks">EDIT</a>
+        <a href="#" class="card-link link">DELETE</a>
       </div>
   </div>
 </article>

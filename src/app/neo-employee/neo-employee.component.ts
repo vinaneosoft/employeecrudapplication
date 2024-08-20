@@ -19,8 +19,15 @@ export class NeoEmployeeComponent {
     ]
   }
 
+  // property value pair
   cardStyle={
     width:"20rem",  // camel case 
-    backgroundColor:"lightblue"
+    backgroundColor:"#D27979"
+  }
+  flexClasses=['d-flex', 'flex-wrap'];
+  //class : boolean value
+  cardLinks={
+    'card-link':true ,
+    'link':true
   }
 }
