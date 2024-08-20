@@ -1,8 +1,9 @@
 
 <article class="d-flex flex-wrap">
-  <div class="card" style="width: 18rem;" *ngFor="let employee of neoemployees">
+  <div class="card" [ngStyle]="cardStyle" *ngFor="let employee of neoemployees">
       <img [src]="employee.employeePic" class="card-img-top" alt="..." height="180">
       <div class="card-body">
+        <h6 class="card-title">#{{employee.empId}}</h6>
         <h5 class="card-title">{{employee.empName}}</h5>
         <p class="card-text">{{employee.empName}} joined on  {{employee.joiningDate}}</p>
       </div>

@@ -18,4 +18,9 @@ export class NeoEmployeeComponent {
       new Employee(100,"Arun vaidya", new Date('18-Dec-2000'), 80000, "LD", 35),
     ]
   }
+
+  cardStyle={
+    width:"20rem",  // camel case 
+    backgroundColor:"lightblue"
+  }
 }
