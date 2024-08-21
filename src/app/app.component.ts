@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {  // u can rename class names
   title = 'employeecrudapplication';
+  company="";
 }

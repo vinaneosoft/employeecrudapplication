@@ -1,5 +1,6 @@
 
-<h1 class="mainHeading">EMPLOYEE MANAGEMENT</h1>
-<app-header></app-header>
+<h1 class="mainHeading">EMPLOYEE MANAGEMENT <small><small>{{company}}</small></small></h1>
+
+<app-header (emitter)="company=$event"></app-header> <!-- custom event binding-->
 <app-neo-employee></app-neo-employee>
 <app-footer></app-footer> <!-- component directive-->
