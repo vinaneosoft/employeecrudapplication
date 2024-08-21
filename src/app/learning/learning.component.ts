@@ -66,4 +66,7 @@ export class LearningComponent {
     this.percentage=((this.subject.sub1+this.subject.sub2+this.subject.sub3)/300)*100
   }
 
+  salaries=[677889.56434, 45678.4567, 343556.342, 56545667.45, 665768.1, 5465757]
+
+  today = new Date();
 }
