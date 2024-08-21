@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LearningComponent } from './learning/learning.component' // u can rename files
 import { FormsModule } from '@angular/forms';
 import { NeoEmployeeComponent } from './neo-employee/neo-employee.component';
+import { EmployeeCardComponent } from './employee-card/employee-card.component';
 
 // decorator
 @NgModule({
@@ -18,7 +19,8 @@ import { NeoEmployeeComponent } from './neo-employee/neo-employee.component';
     FooterComponent,
     NavbarComponent,
     LearningComponent,
-    NeoEmployeeComponent   // components, pipes
+    NeoEmployeeComponent,
+    EmployeeCardComponent   // components, pipes
   ],
   imports: [
     BrowserModule,     // modules

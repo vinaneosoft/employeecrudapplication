@@ -26,8 +26,5 @@ export class NeoEmployeeComponent {
   }
   flexClasses=['d-flex', 'flex-wrap'];
   //class : boolean value
-  cardLinks={
-    'card-link':true ,
-    'link':true
-  }
+
 }
