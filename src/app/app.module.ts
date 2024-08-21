@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { NeoEmployeeComponent } from './neo-employee/neo-employee.component';
 import { EmployeeCardComponent } from './employee-card/employee-card.component';
 import { DatePipe } from '@angular/common';
+import { CustomcurrencyPipe } from './custompipes/customcurrency.pipe';
 
 // decorator
 @NgModule({
@@ -21,7 +22,8 @@ import { DatePipe } from '@angular/common';
     NavbarComponent,
     LearningComponent,
     NeoEmployeeComponent,
-    EmployeeCardComponent   // components, pipes
+    EmployeeCardComponent,
+    CustomcurrencyPipe
   ],
   imports: [
     BrowserModule,     // modules

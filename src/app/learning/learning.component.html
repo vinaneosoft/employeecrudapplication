@@ -226,7 +226,7 @@ but templates will be added where we are checking the condition-->
             <tr><th>SALARY</th><td *ngFor="let salary of salaries">{{salary | currency : 'INR' : 'code'}}</td></tr> 
             <tr><th>SALARY</th><td *ngFor="let salary of salaries">{{salary | currency : 'INR' : 'code' : '8.1-1'}}</td></tr>       
             <!-- 1. currency code, code/ symbol, decimal count-->
-            <tr><th>SALARY</th><td *ngFor="let salary of salaries">{{salary | currency : 'EUR' }}</td></tr>    
+            <tr><th>SALARY</th><td *ngFor="let salary of salaries">{{salary | currency : 'EUR' | customcurrency }}</td></tr>    
         </tbody>
     </table>
     <table>
