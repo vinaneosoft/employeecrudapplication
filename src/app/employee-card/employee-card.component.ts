@@ -10,6 +10,9 @@ export class EmployeeCardComponent {
   @Input()
   employee=new Employee(); // initialization
 
+  @Input()
+  cardStyle={}; // initialization
+
   cardLinks={
     'card-link':true ,
     'link':true

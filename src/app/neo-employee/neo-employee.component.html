@@ -1,7 +1,5 @@
 <label for="cardColor">Select color for card</label> :
  <input type="color" [(ngModel)]="cardStyle.backgroundColor" id="cardColor">
 <article [ngClass]="flexClasses">
-  <div class="card" [ngStyle]="cardStyle" *ngFor="let employee of neoemployees">
-    <app-employee-card [employee]="employee"></app-employee-card>
-  </div>
+    <app-employee-card  *ngFor="let employee of neoemployees" [employee]="employee" [cardStyle]="cardStyle"></app-employee-card>
 </article>
