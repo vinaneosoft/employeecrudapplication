@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { count } from 'rxjs';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-learning',
@@ -16,7 +16,8 @@ export class LearningComponent {
 
   classRef=LearningComponent;
 
-  constructor(){
+  constructor(private datePipe : DatePipe) // dependancy injection
+  {
     LearningComponent.objectCounter++;
     console.log("constructor called...........");
     setTimeout(()=>this.message="Please Join on ur Base Location", 4000)
@@ -69,4 +70,10 @@ export class LearningComponent {
   salaries=[677889.56434, 45678.4567, 343556.342, 56545667.45, 665768.1, 5465757]
 
   today = new Date();
+
+   test(){
+      let newFormat=this.datePipe.transform(this.today, "fullDate")
+      console.log(newFormat);
+      
+  }
 }

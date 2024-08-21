@@ -10,6 +10,7 @@ import { LearningComponent } from './learning/learning.component' // u can renam
 import { FormsModule } from '@angular/forms';
 import { NeoEmployeeComponent } from './neo-employee/neo-employee.component';
 import { EmployeeCardComponent } from './employee-card/employee-card.component';
+import { DatePipe } from '@angular/common';
 
 // decorator
 @NgModule({
@@ -26,7 +27,7 @@ import { EmployeeCardComponent } from './employee-card/employee-card.component';
     BrowserModule,     // modules
     AppRouteModule, FormsModule
   ],
-  providers: [],     // services
+  providers: [DatePipe],     // services
   bootstrap: [AppComponent]  // root component
 })
 export class AppModule { }
