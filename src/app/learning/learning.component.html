@@ -240,4 +240,10 @@ but templates will be added where we are checking the condition-->
         </tbody>
     </table>
     <button (click)="test()">FORMAT DATE</button>
+    <table class="table table-stripped">
+        <tbody>
+            <tr><th>SALARY</th><td *ngFor="let salary of salaries">{{salary}}</td></tr>
+            <tr><th>SALARY</th><td *ngFor="let salary of salaries"><span>{{rupees}}</span><span>{{salary}}</span></td></tr>
+        </tbody>
+    </table>
 </div>

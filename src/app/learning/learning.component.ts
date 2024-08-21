@@ -76,4 +76,5 @@ export class LearningComponent {
       console.log(newFormat);
       
   }
+  rupees="INR"
 }
