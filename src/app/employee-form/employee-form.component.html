@@ -12,11 +12,17 @@
 <form [formGroup]="employeeForm" (submit)="collectData()">
     <div class="mb-3">
         <label for="empId" class="form-label">ID</label>
-        <input type="number" class="form-control" id="empId" formControlName="empId" >
+        <input type="number" class="form-control" id="empId" formControlName="empId">
+        <div class="text-danger text-bold" *ngIf="eid?.touched">
+            <span *ngIf="eid?.hasError('required')">Id is required</span>
+        </div>
     </div>
     <div class="mb-3">
          <label for="empName" class="form-label">Name</label>
         <input type="text" class="form-control" id="empName" formControlName="empName">
+        <div class="text-danger text-bold" *ngIf="ename?.touched">
+            <span *ngIf="ename?.hasError('required')">Name is required</span>
+        </div>
     </div>
     <div class="mb-3">
         <label for="emailId" class="form-label">Email ID</label>

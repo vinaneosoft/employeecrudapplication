@@ -13,20 +13,38 @@ export class EmployeeFormComponent {
 
   constructor(){
     this.employeeForm=new FormGroup({
-      empId:new FormControl("",[Validators.required]),
-      empName:new FormControl("", [Validators.required, Validators.pattern("[A-Za-z ]*"), Validators.minLength(2)]),
+      empId:new FormControl("",[Validators.required]), //invalid {required: true}, validation pass null
+      empName:new FormControl("", [Validators.required, Validators.pattern("[A-Za-z ]*"), Validators.minLength(2)]), // pattern, minlength
       basicSalary:new FormControl("", [Validators.required, Validators.pattern("[0-9]*")]),
       deptCode:new FormControl("JS",[Validators.required]),
       joiningDate:new FormControl("",[Validators.required]),
-      experience:new FormControl("",[Validators.required, Validators.min(0), Validators.max(99)] ),
-      emailId:new FormControl("",[Validators.email])
+      experience:new FormControl("",[Validators.required, Validators.min(0), Validators.max(99)] ), //min, max
+      emailId:new FormControl("",[Validators.email]) //email
     });
-
-   // this.employeeForm.get("empId")?.setValue(56788);
   }
 
+  get eid(){
+      return this.employeeForm.get("empId");
+  }
+  get ename(){
+      return this.employeeForm.get("empName");
+  }
+  get salary(){
+    return this.employeeForm.get("basicSalary");
+  }
+  get dcode(){
+    return this.employeeForm.get("deptCode");
+  }
+  get joining(){
+    return this.employeeForm.get("joiningDate");
+  }
+  get exp(){
+    return this.employeeForm.get("experience");
+  }
+  get email(){
+    return this.employeeForm.get("emailId");
+  }
   collectData(){
-   //console.log(this.employeeForm.get("empId")?.value);
    console.log(this.employeeForm)
   }
 }
