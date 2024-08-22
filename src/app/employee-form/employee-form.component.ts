@@ -13,12 +13,19 @@ export class EmployeeFormComponent {
 
   constructor(){
     this.employeeForm=new FormGroup({
-      empId:new FormControl(),
+      empId:new FormControl(45),
       empName:new FormControl(),
       basicSalary:new FormControl(),
       deptCode:new FormControl(),
       joiningDate:new FormControl(),
       experience:new FormControl()
     });
+
+   // this.employeeForm.get("empId")?.setValue(56788);
+  }
+
+  collectData(){
+   //console.log(this.employeeForm.get("empId")?.value);
+   console.log(this.employeeForm)
   }
 }

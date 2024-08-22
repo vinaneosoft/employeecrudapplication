@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LearningComponent } from './learning/learning.component' // u can rename files
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NeoEmployeeComponent } from './neo-employee/neo-employee.component';
 import { EmployeeCardComponent } from './employee-card/employee-card.component';
 import { DatePipe } from '@angular/common';
@@ -31,7 +31,7 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
   ],
   imports: [
     BrowserModule,     // modules
-    AppRouteModule, FormsModule
+    AppRouteModule, FormsModule, ReactiveFormsModule
   ],
   providers: [DatePipe],     // services
   bootstrap: [AppComponent]  // root component
