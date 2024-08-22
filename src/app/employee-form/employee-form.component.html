@@ -1,0 +1,47 @@
+<!--
+  public empId=0,
+        public empName="",
+        public joiningDate = new Date(),
+        public basicSalary=0,
+        public deptCode="",
+        public experience=0,
+        public employeePic='-->
+<article class="d-flex justify-content-center">
+<div class="w-50 border border-4 p-4">
+<h3> Employee Input Form</h3>
+<form>
+    <div class="mb-3">
+      <label for="empId" class="form-label">ID</label>
+      <input type="number" class="form-control" id="empId">
+    </div>
+    <div class="mb-3">
+      <label for="empName" class="form-label">Name</label>
+      <input type="text" class="form-control" id="empName">
+    </div>
+    <div class="mb-3">
+        <label for="basicSalary" class="form-label">Basic Salary</label>
+        <input type="number" class="form-control" id="basicSalary">
+      </div>
+      <div class="mb-3">
+        <label for="experience" class="form-label">Experience</label>
+        <input type="number" class="form-control" id="experience">
+      </div>
+      <div class="mb-3">
+        <label for="joiningDate" class="form-label">Joining Date</label>
+        <input type="datetime-local" class="form-control" id="joiningDate">
+      </div>
+      <div class="mb-3">
+        <label for="deptCode" class="form-label">Select Department</label>
+        <select class="form-select" id="deptCode">
+            <option *ngFor="let dept of deptcodes" [value]="dept">{{dept}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="employeePic" class="form-label">Upload Image</label>
+        <input type="file" class="form-control" id="employeePic">
+      </div>
+    <button type="submit" class="btn btn-primary m-2">SUBMIT</button>
+    <button type="submit" class="btn btn-primary">RESET</button>
+  </form>
+</div>
+</article>

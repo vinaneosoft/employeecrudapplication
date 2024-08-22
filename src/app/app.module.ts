@@ -13,6 +13,7 @@ import { EmployeeCardComponent } from './employee-card/employee-card.component';
 import { DatePipe } from '@angular/common';
 import { CustomcurrencyPipe } from './custompipes/customcurrency.pipe';
 import { OrderbyPipe } from './custompipes/orderby.pipe';
+import { EmployeeFormComponent } from './employee-form/employee-form.component';
 
 // decorator
 @NgModule({
@@ -25,7 +26,8 @@ import { OrderbyPipe } from './custompipes/orderby.pipe';
     NeoEmployeeComponent,
     EmployeeCardComponent,
     CustomcurrencyPipe,
-    OrderbyPipe
+    OrderbyPipe,
+    EmployeeFormComponent
   ],
   imports: [
     BrowserModule,     // modules
