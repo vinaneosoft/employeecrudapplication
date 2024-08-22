@@ -79,5 +79,5 @@ export class LearningComponent {
   }
   rupees="INR"
 
-  // declare the array having all dates  new Date('')
+  birthDates=[new Date('12 Jan 2024'), new Date('11 Jan 2024'), new Date('10 Dec 2023')]
 }

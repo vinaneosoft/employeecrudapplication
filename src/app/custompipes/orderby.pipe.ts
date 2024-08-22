@@ -8,9 +8,10 @@ export class OrderbyPipe implements PipeTransform {
   transform(array: any[], ...args: any[]): any[] {
     console.log(array);
     console.log(args);
+    let sortOrder=args[0];
     // string, number, object
     if(typeof array[0]=='number' || array[0]=='Number')
-      return this.numberSort(array);
+      return this.numberSort(array, sortOrder);
     else if(typeof array[0]=="string" || array[0]=='String')
       return this.stringSort(array);
     else if( array[0] instanceof Date )
@@ -20,9 +21,11 @@ export class OrderbyPipe implements PipeTransform {
     else
       return array.sort();
   }
-
-  numberSort(array:any[]){
-    return array.sort((n1,n2)=>n1-n2)
+  numberSort(array:any[], sortOrder:string){
+    if(sortOrder=='desc')
+        return array.sort((n1,n2)=>n2-n1)
+      else 
+        return array.sort((n1,n2)=>n1-n2)
   }
   stringSort(array:any[]){
     return array.sort()
