@@ -3,11 +3,11 @@
   <img [src]="employee.employeePic" class="card-img-top" alt="..." height="180">
   <div class="card-body">
     <h6 class="card-title" [ngStyle]="{color:'blue', 'text-decoration':'underline'}"  >#{{employee.empId}}</h6>
-    <h5 class="card-title">{{employee.empName}}</h5>
-    <p class="card-text">{{employee.empName}} joined on  {{employee.joiningDate}}</p>
+    <h5 class="card-title">{{employee.empName | uppercase}}</h5>
+    <p class="card-text">{{employee.empName}} joined on  {{employee.joiningDate | date :"fullDate"}}</p>
   </div>
   <ul [ngClass]="['list-group', 'list-group-flush']">
-    <li class="list-group-item">basic salary : <span>{{employee.basicSalary}}</span></li>
+    <li class="list-group-item">basic salary : <span>{{employee.basicSalary | currency :"INR"}}</span></li>
     <li class="list-group-item">deparment code : <span>{{employee.deptCode}}</span></li>
     <li class="list-group-item">Experience : <span>{{employee.experience}}</span> years</li>
   </ul>

@@ -21,6 +21,7 @@ export class LearningComponent {
     LearningComponent.objectCounter++;
     console.log("constructor called...........");
     setTimeout(()=>this.message="Please Join on ur Base Location", 4000)
+   // this.salaries.sort((n1,n2)=>n1-n2); // model side sorting
   }
 
 
@@ -67,7 +68,7 @@ export class LearningComponent {
     this.percentage=((this.subject.sub1+this.subject.sub2+this.subject.sub3)/300)*100
   }
 
-  salaries=[677889.56434, 45678.4567, 343556.342, 56545667.45, 665768.1, 5465757]
+  salaries=[989, 677889.56434, 45678.4567, 343556.342, 56545667.45, 665768.1, 5465757]
 
   today = new Date();
 
@@ -77,4 +78,6 @@ export class LearningComponent {
       
   }
   rupees="INR"
+
+  // declare the array having all dates  new Date('')
 }

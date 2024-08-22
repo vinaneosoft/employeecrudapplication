@@ -199,7 +199,7 @@ but templates will be added where we are checking the condition-->
 <div>
     <h3>ngFor</h3>
      <ol>
-        <li *ngFor="let location of locations">{{location}}
+        <li *ngFor="let location of locations | orderby ">{{location}}
         </li> <!-- location variable scope till end of li tag -->
      </ol>
      <h3>ngFor</h3>
@@ -242,8 +242,10 @@ but templates will be added where we are checking the condition-->
     <button (click)="test()">FORMAT DATE</button>
     <table class="table table-stripped">
         <tbody>
-            <tr><th>SALARY</th><td *ngFor="let salary of salaries">{{salary}}</td></tr>
+            <tr><th>SALARY</th><td *ngFor="let salary of salaries | orderby ">{{salary}}</td></tr>
             <tr><th>SALARY</th><td *ngFor="let salary of salaries"><span>{{rupees}}</span><span>{{salary}}</span></td></tr>
         </tbody>
     </table>
+
+    //display date array here and apply order by pipe
 </div>
