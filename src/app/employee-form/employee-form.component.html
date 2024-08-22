@@ -11,21 +11,25 @@
 <h3 class="text-center"> Employee Input Form</h3>
 <form [formGroup]="employeeForm" (submit)="collectData()">
     <div class="mb-3">
-      <label for="empId" class="form-label">ID</label>
-      <input type="number" class="form-control" id="empId" formControlName="empId" >
+        <label for="empId" class="form-label">ID</label>
+        <input type="number" class="form-control" id="empId" formControlName="empId" >
     </div>
     <div class="mb-3">
-      <label for="empName" class="form-label">Name</label>
-      <input type="text" class="form-control" id="empName" formControlName="empName">
+         <label for="empName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="empName" formControlName="empName">
+    </div>
+    <div class="mb-3">
+        <label for="emailId" class="form-label">Email ID</label>
+        <input type="text" class="form-control" id="emailId" formControlName="emailId">
     </div>
     <div class="mb-3">
         <label for="basicSalary" class="form-label">Basic Salary</label>
         <input type="number" class="form-control" id="basicSalary" formControlName="basicSalary">
-      </div>
-      <div class="mb-3">
+    </div>
+    <div class="mb-3">
         <label for="experience" class="form-label">Experience</label>
         <input type="number" class="form-control" id="experience" formControlName="experience">
-      </div>
+    </div>
       <div class="mb-3">
         <label for="joiningDate" class="form-label">Joining Date</label>
         <input type="datetime-local" class="form-control" id="joiningDate" formControlName="joiningDate">

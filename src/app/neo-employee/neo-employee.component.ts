@@ -13,9 +13,9 @@ export class NeoEmployeeComponent {
   }
   getEmployees(){
     this.neoemployees=[
-      new Employee(111,"Hari kumar", new Date('12-July-2004'), 90000, "LD", 30),
-      new Employee(121,"Shama kumari", new Date('10-July-2004'), 98000, "JS", 25),
-      new Employee(100,"Arun vaidya", new Date('18-Dec-2000'), 80000, "LD", 35),
+      new Employee(111,"Hari kumar", new Date('12-July-2004'), 90000, "LD", 30, "abc@gmail.com"),
+      new Employee(121,"Shama kumari", new Date('10-July-2004'), 98000, "JS", 25, "abc@gmail.com"),
+      new Employee(100,"Arun vaidya", new Date('18-Dec-2000'), 80000, "LD", 35, "abc@gmail.com"),
     ]
   }
 
