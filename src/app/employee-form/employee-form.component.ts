@@ -7,11 +7,8 @@ import { CustomValidators } from '../customclasses/custom-validators';
   styleUrl: './employee-form.component.css'
 })
 export class EmployeeFormComponent {
-
   deptcodes =['LD','JS','PHP','HR','JAVA']
-
   employeeForm:FormGroup;
-
   constructor(){
     this.employeeForm=new FormGroup({
       empId:new FormControl("",[Validators.required]), //invalid {required: true}, validation pass null
@@ -22,8 +19,8 @@ export class EmployeeFormComponent {
       experience:new FormControl("",[Validators.required, Validators.min(0), Validators.max(99)] ), //min, max
       emailId:new FormControl("",[Validators.required, Validators.email]), //email
       secreteCode: new FormControl("123", [Validators.required, Validators.minLength(3), Validators.maxLength(6)]),
-      confirmCode : new FormControl()
-    } , [CustomValidators.valueMatch]);
+      confirmCode : new FormControl("",/* [CustomValidators.valueMatch2("123")] */)
+    } , [CustomValidators.valueMatch3("secreteCode", "confirmCode")]);
   }
   get eid(){
       return this.employeeForm.get("empId");
