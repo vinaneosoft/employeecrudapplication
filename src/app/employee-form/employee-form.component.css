@@ -1,3 +1,12 @@
 input.ng-touched{
     background-color: lightcyan;
 }
+
+input.ng-invalid{
+    border: 2px double red;
+}
+
+input.ng-valid, form.ng-valid{
+    border: 2px double green;
+}
+

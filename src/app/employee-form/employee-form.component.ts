@@ -19,10 +19,11 @@ export class EmployeeFormComponent {
       deptCode:new FormControl("JS",[Validators.required]),
       joiningDate:new FormControl("",[Validators.required]),
       experience:new FormControl("",[Validators.required, Validators.min(0), Validators.max(99)] ), //min, max
-      emailId:new FormControl("",[Validators.required, Validators.email]) //email
+      emailId:new FormControl("",[Validators.required, Validators.email]), //email
+      secreteCode: new FormControl("123", [Validators.required, Validators.minLength(3), Validators.maxLength(6)]),
+      confirmCode : new FormControl()
     });
   }
-
   get eid(){
       return this.employeeForm.get("empId");
   }
@@ -43,6 +44,9 @@ export class EmployeeFormComponent {
   }
   get email(){
     return this.employeeForm.get("emailId");
+  }
+  get scode(){
+    return this.employeeForm.get("secreteCode");
   }
   collectData(){
    console.log(this.employeeForm)

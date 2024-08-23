@@ -7,6 +7,7 @@ export class Employee {
         public deptCode="",
         public experience=0,
         public emailId="",
+        public secreteCode="123",
         public employeePic='resources/sampleemployee.jpg'
     ){}
 

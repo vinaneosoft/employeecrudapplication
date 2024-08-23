@@ -9,11 +9,11 @@
 <article class="d-flex justify-content-center">
 <div class="w-50 border border-4 p-4">
 <h3 class="text-center"> Employee Input Form</h3>
-<form [formGroup]="employeeForm" (submit)="collectData()">
+<form [formGroup]="employeeForm" (submit)="collectData()" class="p-2">
     <div class="mb-3">
         <label for="empId" class="form-label">ID</label>
         <input type="number" class="form-control" id="empId" formControlName="empId">
-        <div class="text-danger text-bold" *ngIf="eid?.touched">
+        <div class="text-danger text-bold" *ngIf="eid?.touched">  <!-- dirty-->
             <span *ngIf="eid?.hasError('required')">Id is required</span>
         </div>
     </div>
@@ -35,32 +35,56 @@
       </div>
     </div>
     <div class="mb-3">
-        <label for="basicSalary" class="form-label">Basic Salary</label>
-        <input type="number" class="form-control" id="basicSalary" formControlName="basicSalary">
-        <div class="text-danger text-bold" *ngIf="salary?.touched">
-          <span *ngIf="salary?.hasError('required')">Basic Salary is required</span>
-          <span *ngIf="salary?.hasError('min')">Please enter valid salary</span>
+      <label for="basicSalary" class="form-label">Basic Salary</label>
+      <input type="number" class="form-control" id="basicSalary" formControlName="basicSalary">
+      <div class="text-danger text-bold" *ngIf="salary?.touched">
+        <span *ngIf="salary?.hasError('required')">Basic Salary is required</span>
+        <span *ngIf="salary?.hasError('min')">Please enter valid salary</span>
       </div>
     </div>
     <div class="mb-3">
-        <label for="experience" class="form-label">Experience</label>
-        <input type="number" class="form-control" id="experience" formControlName="experience">
+      <label for="experience" class="form-label">Experience</label>
+      <input type="number" class="form-control" id="experience" formControlName="experience">
+      <div class="text-danger text-bold" *ngIf="exp?.touched">
+        <span *ngIf="exp?.hasError('required')">Experience is required</span>
+        <span *ngIf="exp?.hasError('min')">Experience can not be negative</span>
+        <span *ngIf="exp?.hasError('max')">Experience must be in 2 digits</span>
+      </div>
     </div>
       <div class="mb-3">
         <label for="joiningDate" class="form-label">Joining Date</label>
         <input type="datetime-local" class="form-control" id="joiningDate" formControlName="joiningDate">
+        <div class="text-danger text-bold" *ngIf="joining?.touched">
+          <span *ngIf="joining?.hasError('required')">Joining date is required</span>
+        </div>
       </div>
       <div class="mb-3">
         <label for="deptCode" class="form-label">Select Department</label>
         <select class="form-select" id="deptCode" formControlName="deptCode">
             <option *ngFor="let dept of deptcodes" [value]="dept">{{dept}}</option>
         </select>
+        <div class="text-danger text-bold" *ngIf="dcode?.touched">
+          <span *ngIf="dcode?.hasError('required')">Department is required</span>
+        </div>
       </div>
       <div class="mb-3">
         <label for="employeePic" class="form-label">Upload Image</label>
         <input type="file" class="form-control" id="employeePic">
       </div>
-    <button type="submit" class="btn btn-primary m-2">SUBMIT</button>
+      <div class="mb-3">
+        <label for="secreteCode" class="form-label">Secrete Code</label>
+        <input type="text" class="form-control" id="secreteCode" formControlName="secreteCode">
+        <div class="text-danger text-bold" *ngIf="scode?.touched">
+          <span *ngIf="scode?.hasError('required')">Secrete code is required</span>
+          <span *ngIf="scode?.hasError('minlength')">Secrete code must atleast 3 chars long</span>
+          <span *ngIf="scode?.hasError('maxlength')">Secrete code can not be more than 6 chars</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="confirmCode" class="form-label">Confirm Code</label>
+        <input type="text" class="form-control" id="confirmCode" formControlName="confirmCode">
+      </div>
+    <button type="submit" class="btn btn-primary m-2" [disabled]="employeeForm.invalid" >SUBMIT</button>
     <button type="submit" class="btn btn-primary">RESET</button>
   </form>
 </div>
