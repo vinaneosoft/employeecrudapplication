@@ -1,5 +1,4 @@
 import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from "@angular/forms";
-
 export class CustomValidators {
     static valueMatch(control:AbstractControl): ValidationErrors | null{
         // secreteCode and confirmCode
@@ -10,8 +9,6 @@ export class CustomValidators {
           else
             return null
     }
-
-    
     static valueMatch2(secretecode: string): ValidatorFn {
       return (control:AbstractControl) : ValidationErrors | null=>{
             const confirmcode =control?.value
@@ -21,7 +18,6 @@ export class CustomValidators {
                 return null
       }
     }
-
     static valueMatch3(formControl1: string, formControl2:string): ValidatorFn {
         return (control:AbstractControl) : ValidationErrors | null=>{
               const val1=control.get(formControl1)?.value
