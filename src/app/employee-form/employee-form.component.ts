@@ -15,11 +15,11 @@ export class EmployeeFormComponent {
     this.employeeForm=new FormGroup({
       empId:new FormControl("",[Validators.required]), //invalid {required: true}, validation pass null
       empName:new FormControl("", [Validators.required, Validators.pattern("[A-Za-z ]*"), Validators.minLength(2)]), // pattern, minlength
-      basicSalary:new FormControl("", [Validators.required, Validators.pattern("[0-9]*")]),
+      basicSalary:new FormControl("", [Validators.required, Validators.min(0)]),
       deptCode:new FormControl("JS",[Validators.required]),
       joiningDate:new FormControl("",[Validators.required]),
       experience:new FormControl("",[Validators.required, Validators.min(0), Validators.max(99)] ), //min, max
-      emailId:new FormControl("",[Validators.email]) //email
+      emailId:new FormControl("",[Validators.required, Validators.email]) //email
     });
   }
 

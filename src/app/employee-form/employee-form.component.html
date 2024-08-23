@@ -22,15 +22,25 @@
         <input type="text" class="form-control" id="empName" formControlName="empName">
         <div class="text-danger text-bold" *ngIf="ename?.touched">
             <span *ngIf="ename?.hasError('required')">Name is required</span>
+            <span *ngIf="ename?.hasError('pattern')">Name must contain only characters</span>
+            <span *ngIf="ename?.hasError('minlength')">Name must have atleast 2 letters</span>
         </div>
     </div>
     <div class="mb-3">
         <label for="emailId" class="form-label">Email ID</label>
         <input type="text" class="form-control" id="emailId" formControlName="emailId">
+        <div class="text-danger text-bold" *ngIf="email?.touched">
+          <span *ngIf="email?.hasError('required')">Email is required</span>
+          <span *ngIf="email?.hasError('email')">Please enter valid email id</span>
+      </div>
     </div>
     <div class="mb-3">
         <label for="basicSalary" class="form-label">Basic Salary</label>
         <input type="number" class="form-control" id="basicSalary" formControlName="basicSalary">
+        <div class="text-danger text-bold" *ngIf="salary?.touched">
+          <span *ngIf="salary?.hasError('required')">Basic Salary is required</span>
+          <span *ngIf="salary?.hasError('min')">Please enter valid salary</span>
+      </div>
     </div>
     <div class="mb-3">
         <label for="experience" class="form-label">Experience</label>
