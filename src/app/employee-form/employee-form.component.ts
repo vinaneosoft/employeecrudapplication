@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CustomValidators } from '../customclasses/custom-validators';
 @Component({
   selector: 'app-employee-form',
   templateUrl: './employee-form.component.html',
@@ -22,7 +23,7 @@ export class EmployeeFormComponent {
       emailId:new FormControl("",[Validators.required, Validators.email]), //email
       secreteCode: new FormControl("123", [Validators.required, Validators.minLength(3), Validators.maxLength(6)]),
       confirmCode : new FormControl()
-    });
+    } , [CustomValidators.valueMatch]);
   }
   get eid(){
       return this.employeeForm.get("empId");
@@ -47,6 +48,9 @@ export class EmployeeFormComponent {
   }
   get scode(){
     return this.employeeForm.get("secreteCode");
+  }
+  get cscode(){
+    return this.employeeForm.get("confirmCode");
   }
   collectData(){
    console.log(this.employeeForm)

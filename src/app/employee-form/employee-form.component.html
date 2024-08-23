@@ -83,6 +83,9 @@
       <div class="mb-3">
         <label for="confirmCode" class="form-label">Confirm Code</label>
         <input type="text" class="form-control" id="confirmCode" formControlName="confirmCode">
+        <div class="text-danger text-bold" *ngIf="cscode?.touched">
+          <span *ngIf="employeeForm?.hasError('match')">Both code must match</span>
+        </div>
       </div>
     <button type="submit" class="btn btn-primary m-2" [disabled]="employeeForm.invalid" >SUBMIT</button>
     <button type="submit" class="btn btn-primary">RESET</button>
