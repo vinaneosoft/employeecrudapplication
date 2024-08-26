@@ -16,6 +16,9 @@ import { OrderbyPipe } from './custompipes/orderby.pipe';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { HomeComponent } from './home/home.component';
 import { ViewNotFoundComponent } from './view-not-found/view-not-found.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { NeosoftComponent } from './neosoft/neosoft.component';
+import { WebwerksComponent } from './webwerks/webwerks.component';
 
 // decorator
 @NgModule({
@@ -31,7 +34,10 @@ import { ViewNotFoundComponent } from './view-not-found/view-not-found.component
     OrderbyPipe,
     EmployeeFormComponent,
     HomeComponent,
-    ViewNotFoundComponent
+    ViewNotFoundComponent,
+    AdminLoginComponent,
+    NeosoftComponent,
+    WebwerksComponent
   ],
   imports: [
     BrowserModule,     // modules
