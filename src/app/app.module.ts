@@ -14,6 +14,8 @@ import { DatePipe } from '@angular/common';
 import { CustomcurrencyPipe } from './custompipes/customcurrency.pipe';
 import { OrderbyPipe } from './custompipes/orderby.pipe';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { HomeComponent } from './home/home.component';
+import { ViewNotFoundComponent } from './view-not-found/view-not-found.component';
 
 // decorator
 @NgModule({
@@ -27,7 +29,9 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
     EmployeeCardComponent,
     CustomcurrencyPipe,
     OrderbyPipe,
-    EmployeeFormComponent
+    EmployeeFormComponent,
+    HomeComponent,
+    ViewNotFoundComponent
   ],
   imports: [
     BrowserModule,     // modules
