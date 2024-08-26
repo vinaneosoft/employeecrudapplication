@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidators } from '../customclasses/custom-validators';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-employee-form',
   templateUrl: './employee-form.component.html',
@@ -9,9 +10,12 @@ import { CustomValidators } from '../customclasses/custom-validators';
 export class EmployeeFormComponent {
   deptcodes =['LD','JS','PHP','HR','JAVA']
   employeeForm:FormGroup;
-  constructor(){
+  constructor(public activeRoute:ActivatedRoute) // DI
+  {
+   const routerParameter=this.activeRoute.snapshot.params['empId'];
+    // use this id to search the employee and take it from backend /  search the employee in angular store
     this.employeeForm=new FormGroup({
-      empId:new FormControl("",[Validators.required]), //invalid {required: true}, validation pass null
+      empId:new FormControl(routerParameter,[Validators.required]), //invalid {required: true}, validation pass null
       empName:new FormControl("", [Validators.required, Validators.pattern("[A-Za-z ]*"), Validators.minLength(2)]), // pattern, minlength
       basicSalary:new FormControl("", [Validators.required, Validators.min(0)]),
       deptCode:new FormControl("JS",[Validators.required]),
