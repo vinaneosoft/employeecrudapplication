@@ -12,7 +12,10 @@ export class EmployeeFormComponent {
   employeeForm:FormGroup;
   constructor(public activeRoute:ActivatedRoute) // DI
   {
-   const routerParameter=this.activeRoute.snapshot.params['empId'];
+   //const routerParameter=this.activeRoute.snapshot.paramMap.get('empId');
+   const routerParameter=this.activeRoute.snapshot.params['empId']
+   console.log(routerParameter);
+   
     // use this id to search the employee and take it from backend /  search the employee in angular store
     this.employeeForm=new FormGroup({
       empId:new FormControl(routerParameter,[Validators.required]), //invalid {required: true}, validation pass null
