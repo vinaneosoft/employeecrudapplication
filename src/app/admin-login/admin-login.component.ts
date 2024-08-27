@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../customservices/user.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -8,22 +9,21 @@ import { Router } from '@angular/router';
 })
 export class AdminLoginComponent {
   message="";
-  loginFlag=false; // we will add this logic LoginService : service can be shared  
-  constructor(private router:Router){
+  flag=false;
+  constructor(private router:Router, public userService:UserService){
+    //console.log("in AdminLoginComponent");
   }
   collectData(loginForm:any){
-    console.log(loginForm.value);
-    this.login(loginForm.value.username,loginForm.value.password);
+   // console.log(loginForm.value);
+    this.flag=this.userService.login(loginForm.value.username,loginForm.value.password);
+    if(this.flag)
+      this.router.navigate(['../home'])
+    else
+      this.message="Incorrect username or password"
   }
-  login(uname:string, pass:string){
-    this.loginFlag=false;
-      if(uname=="admin" && pass=='neoadmin123')
-       {
-        // add this username in cookie
-        this.loginFlag=true;
-        this.router.navigate(['../home']);
-       }
-      else
-        this.message="Incorrect username or password";
-  }
+  
 }
+
+
+
+
