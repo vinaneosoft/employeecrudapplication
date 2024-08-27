@@ -21,4 +21,8 @@ export class UserService {
   forgotPassword(){
     // backend
   }
+
+  get logFlag(){
+    return this.loginFlag
+  }
 }

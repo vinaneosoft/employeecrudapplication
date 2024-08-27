@@ -21,7 +21,6 @@ export class AdminLoginComponent {
     else
       this.message="Incorrect username or password"
   }
-  
 }
 
 

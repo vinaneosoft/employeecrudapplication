@@ -8,6 +8,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NeosoftComponent } from './neosoft/neosoft.component';
 import { WebwerksComponent } from './webwerks/webwerks.component';
 import { LearningComponent } from './learning/learning.component';
+import { authenticationGuard } from './guards/Guards';
 
 const webwerksChilds:Routes=[
   {
@@ -47,7 +48,8 @@ const routes: Routes = [
   },
   {
     path:"addemployee",
-    component:EmployeeFormComponent
+    component:EmployeeFormComponent,
+    canActivate:[authenticationGuard]
   },
   {
     path:"editemployee/:empId",
