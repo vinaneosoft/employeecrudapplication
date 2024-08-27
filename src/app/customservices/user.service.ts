@@ -14,6 +14,9 @@ export class UserService {
         this.loginFlag=true;
      return this.loginFlag;
   }
+  logout(){
+    this.loginFlag=false;
+  }
   changePassword(){
     // backend
   }

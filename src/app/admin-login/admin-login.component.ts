@@ -16,8 +16,10 @@ export class AdminLoginComponent {
   collectData(loginForm:any){
    // console.log(loginForm.value);
     this.flag=this.userService.login(loginForm.value.username,loginForm.value.password);
-    if(this.flag)
+    if(this.flag){
+      window.alert("You are logged in successfully.....");
       this.router.navigate(['../home'])
+    }
     else
       this.message="Incorrect username or password"
   }

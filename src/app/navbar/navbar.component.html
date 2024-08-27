@@ -25,7 +25,7 @@
             <a class="nav-link" routerLink="adminlogin" routerLinkActive="activeLink">Admin Login</a>
           </li>
           <li class="nav-item" *ngIf="user.logFlag">
-            <a class="nav-link" routerLink="logout" routerLinkActive="activeLink">Logout</a>
+            <button type="button" class="nav-link btn btn-link"  (click)="out()">Logout</button>
           </li>
         </ul>
       </div>
