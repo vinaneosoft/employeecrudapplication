@@ -9,6 +9,7 @@ import { NeosoftComponent } from './neosoft/neosoft.component';
 import { WebwerksComponent } from './webwerks/webwerks.component';
 import { LearningComponent } from './learning/learning.component';
 import { authenticationGuard } from './guards/Guards';
+import { CounterService } from './customservices/counter.service';
 
 const webwerksChilds:Routes=[
   {
@@ -43,7 +44,8 @@ const routes: Routes = [
   {
     path:"home",
     component:HomeComponent,
-    children:homeChilds
+    children:homeChilds,
+    providers:[CounterService]
   },
   {
     path:"employees",

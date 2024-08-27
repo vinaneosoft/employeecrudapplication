@@ -4,8 +4,8 @@ import { CounterService } from '../customservices/counter.service';
 @Component({
   selector: 'app-neosoft',
   templateUrl: './neosoft.component.html',
-  styleUrl: './neosoft.component.css',
-  providers:[CounterService]
+  styleUrl: './neosoft.component.css'
+
 })
 export class NeosoftComponent implements OnDestroy, OnInit {
 
