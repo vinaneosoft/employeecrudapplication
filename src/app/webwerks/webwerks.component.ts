@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CounterService } from '../customservices/counter.service';
 
 @Component({
   selector: 'app-webwerks',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class WebwerksComponent {
 
+  constructor(public counterS:CounterService){
+
+  }
 }

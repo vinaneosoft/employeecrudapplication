@@ -22,9 +22,12 @@ const homeChilds:Routes=[
     component:NeosoftComponent
   },
   {
-    path:"webwerks",
+    path:"webwerks1",
     component:WebwerksComponent,
-    children:webwerksChilds
+  },
+  {
+    path:"webwerks2",
+    component:WebwerksComponent,
   },
   {
     path:'**',
