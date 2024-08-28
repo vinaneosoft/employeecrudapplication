@@ -12,14 +12,14 @@
 <form [formGroup]="employeeForm" (submit)="collectData()" class="p-2">
     <div class="mb-3">
         <label for="empId" class="form-label">ID</label>
-        <input type="number" class="form-control" id="empId" formControlName="empId">
+        <input type="number" class="form-control" id="empId" formControlName="_id">
         <div class="text-danger text-bold" *ngIf="eid?.touched">  <!-- dirty-->
             <span *ngIf="eid?.hasError('required')">Id is required</span>
         </div>
     </div>
     <div class="mb-3">
          <label for="empName" class="form-label">Name</label>
-        <input type="text" class="form-control" id="empName" formControlName="empName">
+        <input type="text" class="form-control" id="empName" formControlName="emp_name">
         <div class="text-danger text-bold" *ngIf="ename?.touched">
             <span *ngIf="ename?.hasError('required')">Name is required</span>
             <span *ngIf="ename?.hasError('pattern')">Name must contain only characters</span>
@@ -28,7 +28,7 @@
     </div>
     <div class="mb-3">
         <label for="emailId" class="form-label">Email ID</label>
-        <input type="text" class="form-control" id="emailId" formControlName="emailId">
+        <input type="text" class="form-control" id="emailId" formControlName="emp_email">
         <div class="text-danger text-bold" *ngIf="email?.touched">
           <span *ngIf="email?.hasError('required')">Email is required</span>
           <span *ngIf="email?.hasError('email')">Please enter valid email id</span>
@@ -36,7 +36,7 @@
     </div>
     <div class="mb-3">
       <label for="basicSalary" class="form-label">Basic Salary</label>
-      <input type="number" class="form-control" id="basicSalary" formControlName="basicSalary">
+      <input type="number" class="form-control" id="basicSalary" formControlName="emp_salary">
       <div class="text-danger text-bold" *ngIf="salary?.touched">
         <span *ngIf="salary?.hasError('required')">Basic Salary is required</span>
         <span *ngIf="salary?.hasError('min')">Please enter valid salary</span>
@@ -53,14 +53,14 @@
     </div>
       <div class="mb-3">
         <label for="joiningDate" class="form-label">Joining Date</label>
-        <input type="datetime-local" class="form-control" id="joiningDate" formControlName="joiningDate">
+        <input type="datetime-local" class="form-control" id="joiningDate" formControlName="joining_date">
         <div class="text-danger text-bold" *ngIf="joining?.touched">
           <span *ngIf="joining?.hasError('required')">Joining date is required</span>
         </div>
       </div>
       <div class="mb-3">
         <label for="deptCode" class="form-label">Select Department</label>
-        <select class="form-select" id="deptCode" formControlName="deptCode">
+        <select class="form-select" id="deptCode" formControlName="dept_code">
             <option *ngFor="let dept of deptcodes" [value]="dept">{{dept}}</option>
         </select>
         <div class="text-danger text-bold" *ngIf="dcode?.touched">
@@ -73,7 +73,7 @@
       </div> -->
       <div class="mb-3">
         <label for="secreteCode" class="form-label">Secrete Code</label>
-        <input type="text" class="form-control" id="secreteCode" formControlName="secreteCode">
+        <input type="text" class="form-control" id="secreteCode" formControlName="secrete_code">
         <div class="text-danger text-bold" *ngIf="scode?.touched">
           <span *ngIf="scode?.hasError('required')">Secrete code is required</span>
           <span *ngIf="scode?.hasError('minlength')">Secrete code must atleast 3 chars long</span>

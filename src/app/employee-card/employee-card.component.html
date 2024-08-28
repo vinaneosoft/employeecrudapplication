@@ -2,17 +2,17 @@
 <div class="card" [ngStyle]="cardStyle">
   <img [src]="employee.employeePic" class="card-img-top" alt="..." height="180">
   <div class="card-body">
-    <h6 class="card-title" [ngStyle]="{color:'blue', 'text-decoration':'underline'}"  >#{{employee.empId}}</h6>
-    <h5 class="card-title">{{employee.empName | uppercase}}</h5>
-    <p class="card-text">{{employee.empName}} joined on  {{employee.joiningDate | date :"fullDate"}}</p>
+    <h6 class="card-title" [ngStyle]="{color:'blue', 'text-decoration':'underline'}"  >#{{employee._id}}</h6>
+    <h5 class="card-title">{{employee.emp_name| uppercase}}</h5>
+    <p class="card-text">{{employee.emp_name}} joined on  {{employee.joining_date | date :"fullDate"}}</p>
   </div>
   <ul [ngClass]="['list-group', 'list-group-flush']">
-    <li class="list-group-item">basic salary : <span>{{employee.basicSalary | currency :"INR"}}</span></li>
-    <li class="list-group-item">deparment code : <span>{{employee.deptCode}}</span></li>
+    <li class="list-group-item">basic salary : <span>{{employee.emp_salary | currency :"INR"}}</span></li>
+    <li class="list-group-item">deparment code : <span>{{employee.dept_code}}</span></li>
     <li class="list-group-item">Experience : <span>{{employee.experience}}</span> years</li>
   </ul>
   <div class="card-body">
-    <a [routerLink]="['../editemployee',employee.empId]" [ngClass]="cardLinks">EDIT</a>  <!-- shift cardLinks from parent to child-->
+    <a [routerLink]="['../editemployee',employee._id]" [ngClass]="cardLinks">EDIT</a>  <!-- shift cardLinks from parent to child-->
     <a href="#" class="card-link link">DELETE</a> <!-- link class in css-->
   </div>
 </div>

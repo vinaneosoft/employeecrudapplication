@@ -19,42 +19,43 @@ export class EmployeeFormComponent {
    const routerParameter=this.activeRoute.snapshot.params['empId']
    console.log(routerParameter);
    
+
     // use this id to search the employee and take it from backend /  search the employee in angular store
     this.employeeForm=new FormGroup({
-      empId:new FormControl(routerParameter,[Validators.required]), //invalid {required: true}, validation pass null
-      empName:new FormControl("", [Validators.required, Validators.pattern("[A-Za-z ]*"), Validators.minLength(2)]), // pattern, minlength
-      basicSalary:new FormControl("", [Validators.required, Validators.min(0)]),
-      deptCode:new FormControl("JS",[Validators.required]),
-      joiningDate:new FormControl("",[Validators.required]),
+      _id:new FormControl(routerParameter,[Validators.required]), //invalid {required: true}, validation pass null
+      emp_name:new FormControl("", [Validators.required, Validators.pattern("[A-Za-z ]*"), Validators.minLength(2)]), // pattern, minlength
+      emp_salary:new FormControl("", [Validators.required, Validators.min(0)]),
+      dept_code:new FormControl("JS",[Validators.required]),
+      joining_date:new FormControl("",[Validators.required]),
       experience:new FormControl("",[Validators.required, Validators.min(0), Validators.max(99)] ), //min, max
-      emailId:new FormControl("",[Validators.required, Validators.email]), //email
-      secreteCode: new FormControl("123", [Validators.required, Validators.minLength(3), Validators.maxLength(6)]),
+      emp_email:new FormControl("",[Validators.required, Validators.email]), //email
+      secrete_code: new FormControl("123", [Validators.required, Validators.minLength(3), Validators.maxLength(6)]),
       confirmCode : new FormControl("",/* [CustomValidators.valueMatch2("123")] */)
-    } , [CustomValidators.valueMatch3("secreteCode", "confirmCode")]);
+    } , [CustomValidators.valueMatch3("secrete_code", "confirmCode")]);
   }
   get eid(){
-      return this.employeeForm.get("empId");
+      return this.employeeForm.get("_id");
   }
   get ename(){
-      return this.employeeForm.get("empName");
+      return this.employeeForm.get("emp_name");
   }
   get salary(){
-    return this.employeeForm.get("basicSalary");
+    return this.employeeForm.get("emp_salary");
   }
   get dcode(){
-    return this.employeeForm.get("deptCode");
+    return this.employeeForm.get("dept_code");
   }
   get joining(){
-    return this.employeeForm.get("joiningDate");
+    return this.employeeForm.get("joining_date");
   }
   get exp(){
     return this.employeeForm.get("experience");
   }
   get email(){
-    return this.employeeForm.get("emailId");
+    return this.employeeForm.get("emp_email");
   }
   get scode(){
-    return this.employeeForm.get("secreteCode");
+    return this.employeeForm.get("secrete_code");
   }
   get cscode(){
     return this.employeeForm.get("confirmCode");

@@ -1,13 +1,13 @@
 export class Employee {
     constructor(
-        public empId=0,
-        public empName="",
-        public joiningDate = new Date(),
-        public basicSalary=0,
-        public deptCode="",
+        public _id=0,
+        public emp_name="",
+        public joining_date=new Date(),
+        public emp_salary =0,
+        public dept_code="",
         public experience=0,
-        public emailId="",
-        public secreteCode="123",
+        public emp_email="",
+        public secrete_code="123",
         public employeePic='resources/sampleemployee.jpg'
     ){}
 
