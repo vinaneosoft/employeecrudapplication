@@ -5,8 +5,8 @@ import { UpperCasePipe } from '@angular/common';
 @Component({
   selector: 'app-neosoft',
   templateUrl: './neosoft.component.html',
-  styleUrl: './neosoft.component.css'
-
+  styleUrl: './neosoft.component.css',
+  providers:[CounterService]
 })
 export class NeosoftComponent implements OnDestroy, OnInit {
 
