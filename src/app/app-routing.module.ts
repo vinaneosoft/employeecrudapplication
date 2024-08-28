@@ -57,7 +57,7 @@ const routes: Routes = [
   {
     path:"addemployee",
     component:EmployeeFormComponent,
-    canActivate:[authenticationGuard]
+  /*   canActivate:[authenticationGuard] */
   },
   {
     path:"editemployee/:empId",

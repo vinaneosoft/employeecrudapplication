@@ -19,8 +19,7 @@ import { ViewNotFoundComponent } from './view-not-found/view-not-found.component
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NeosoftComponent } from './neosoft/neosoft.component';
 import { WebwerksComponent } from './webwerks/webwerks.component';
-import { provideHttpClient } from '@angular/common/http';
-
+import {provideHttpClient } from '@angular/common/http';
 
 
 // decorator

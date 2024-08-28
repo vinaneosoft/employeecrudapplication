@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidators } from '../customclasses/custom-validators';
 import { ActivatedRoute } from '@angular/router';
+import { Employee } from '../customclasses/employee';
+import { EmployeecrudService } from '../customservices/employeecrud.service';
 @Component({
   selector: 'app-employee-form',
   templateUrl: './employee-form.component.html',
@@ -10,7 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 export class EmployeeFormComponent {
   deptcodes =['LD','JS','PHP','HR','JAVA']
   employeeForm:FormGroup;
-  constructor(public activeRoute:ActivatedRoute) // DI
+  employee=new Employee();
+  constructor(public activeRoute:ActivatedRoute, private empcrud:EmployeecrudService) // DI
   {
    //const routerParameter=this.activeRoute.snapshot.paramMap.get('empId');
    const routerParameter=this.activeRoute.snapshot.params['empId']
@@ -58,5 +61,9 @@ export class EmployeeFormComponent {
   }
   collectData(){
    console.log(this.employeeForm)
+   this.employee=this.employeeForm.value;
+   //console.log(this.employee);
+   if(this.activeRoute.snapshot.routeConfig?.path=="addemployee")
+      this.empcrud.addEmployee(this.employee); // crud service
   }
 }
