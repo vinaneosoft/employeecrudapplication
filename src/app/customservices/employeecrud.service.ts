@@ -12,9 +12,10 @@ export class EmployeecrudService {
   constructor(private http:HttpClient) { }
 
    addEmployee(employee:Employee){
+    console.log(employee);
     const obs= this.http.post(`${this.url2}/employees/add`,employee); // backend // secure : url, body
     obs.subscribe({
-      next:(success)=>console.log(success),
+      next:(success)=>{/* console.log(success) */},
       error:(error)=>console.log(error)
     });
   }

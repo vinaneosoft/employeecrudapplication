@@ -60,7 +60,7 @@ export class EmployeeFormComponent {
     return this.employeeForm.get("confirmCode");
   }
   collectData(){
-   console.log(this.employeeForm)
+   //console.log(this.employeeForm)
    this.employee=this.employeeForm.value;
    //console.log(this.employee);
    if(this.activeRoute.snapshot.routeConfig?.path=="addemployee")
