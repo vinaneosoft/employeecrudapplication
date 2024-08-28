@@ -10,6 +10,7 @@ import { WebwerksComponent } from './webwerks/webwerks.component';
 import { LearningComponent } from './learning/learning.component';
 import { authenticationGuard } from './guards/Guards';
 import { CounterService } from './customservices/counter.service';
+import { UpperCasePipe } from '@angular/common';
 
 const webwerksChilds:Routes=[
   {
@@ -20,11 +21,13 @@ const webwerksChilds:Routes=[
 const homeChilds:Routes=[
   {
     path:"neosoft",
-    component:NeosoftComponent
+    component:NeosoftComponent,
+    providers:[UpperCasePipe]
   },
   {
     path:"webwerks1",
     component:WebwerksComponent,
+    providers:[CounterService] // counter no reset
   },
   {
     path:"webwerks2",

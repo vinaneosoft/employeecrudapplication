@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CounterService } from '../customservices/counter.service';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-neosoft',
@@ -9,9 +10,9 @@ import { CounterService } from '../customservices/counter.service';
 })
 export class NeosoftComponent implements OnDestroy, OnInit {
 
-  constructor(public counterService:CounterService){
+  constructor(public counterService:CounterService, public uppercase:UpperCasePipe){
       console.log("in NeosoftComponent......");
-      
+
   }
   ngOnInit(): void {
     console.log("NeosoftComponent Init phase...");

@@ -10,7 +10,7 @@ import { LearningComponent } from './learning/learning.component' // u can renam
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NeoEmployeeComponent } from './neo-employee/neo-employee.component';
 import { EmployeeCardComponent } from './employee-card/employee-card.component';
-import { DatePipe } from '@angular/common';
+import { DatePipe, UpperCasePipe } from '@angular/common';
 import { CustomcurrencyPipe } from './custompipes/customcurrency.pipe';
 import { OrderbyPipe } from './custompipes/orderby.pipe';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
