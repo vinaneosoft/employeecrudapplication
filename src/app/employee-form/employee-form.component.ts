@@ -79,5 +79,5 @@ export class EmployeeFormComponent {
   onFileSelected(event:any) {
     const file:File = event.target.files[0];
     this.empcrud.fileUpload(file);
-}
+  }
 }

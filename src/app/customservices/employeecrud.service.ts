@@ -14,7 +14,6 @@ export class EmployeecrudService {
   constructor(private http:HttpClient) { }
 
   addEmployee(employee:Employee){
-    //this.fileUpload(employee.employee_pic);
     const obs= this.http.post(`${this.url2}/add`,employee);// backend // secure : url, body
     return obs;
    /* obs.subscribe({
@@ -33,12 +32,13 @@ export class EmployeecrudService {
   }
 
   fileUpload(file:File){
+    console.log(file);
     let formData=new FormData();
     formData.append("profile_pic",file)
-   // console.log(formData);
-    const obs= this.http.post(`${this.url2}/fileadd`,formData, {
-    reportProgress: true,
-    observe: 'events',
-  }); 
+    const obs= this.http.post(`${this.url2}/fileadd`,formData); 
+    obs.subscribe({
+      next:(data)=>console.log(data),
+      error:(err)=>console.log(err)
+    })
   }
 }
