@@ -20,6 +20,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NeosoftComponent } from './neosoft/neosoft.component';
 import { WebwerksComponent } from './webwerks/webwerks.component';
 import {provideHttpClient } from '@angular/common/http';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
 // decorator
@@ -43,7 +44,7 @@ import {provideHttpClient } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,     // modules
-    AppRouteModule, FormsModule, ReactiveFormsModule
+    AppRouteModule, FormsModule, ReactiveFormsModule,RxReactiveFormsModule
   ],
   providers: [DatePipe, provideHttpClient()],     // services
   bootstrap: [AppComponent]  // root component

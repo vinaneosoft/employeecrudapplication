@@ -12,7 +12,7 @@ import { EmployeecrudService } from '../customservices/employeecrud.service';
 export class EmployeeFormComponent {
   deptcodes =['LD','JS','PHP','HR','JAVA']
   employeeForm:FormGroup;
-  employee=new Employee();
+  employee:any;
   constructor(public activeRoute:ActivatedRoute, private empcrud:EmployeecrudService) // DI
   {
    //const routerParameter=this.activeRoute.snapshot.paramMap.get('empId');
@@ -30,7 +30,8 @@ export class EmployeeFormComponent {
       experience:new FormControl("",[Validators.required, Validators.min(0), Validators.max(99)] ), //min, max
       emp_email:new FormControl("",[Validators.required, Validators.email]), //email
       secrete_code: new FormControl("123", [Validators.required, Validators.minLength(3), Validators.maxLength(6)]),
-      confirmCode : new FormControl("",/* [CustomValidators.valueMatch2("123")] */)
+      confirmCode : new FormControl("",/* [CustomValidators.valueMatch2("123")] */),
+      employee_pic:new FormControl("",[Validators.required])
     } , [CustomValidators.valueMatch3("secrete_code", "confirmCode")]);
   }
   get eid(){
@@ -63,8 +64,20 @@ export class EmployeeFormComponent {
   collectData(){
    //console.log(this.employeeForm)
    this.employee=this.employeeForm.value;
-   //console.log(this.employee);
-   if(this.activeRoute.snapshot.routeConfig?.path=="addemployee")
-      this.empcrud.addEmployee(this.employee); // crud service
+   console.log(this.employee);
+   if(this.activeRoute.snapshot.routeConfig?.path=="addemployee"){
+      const obs=this.empcrud.addEmployee(this.employee); // crud service
+      obs.subscribe({
+        next:(data)=>{ 
+         this.employee= data as Employee; 
+          window.alert(`Employee with id ${this.employee._id} added successfully...`); 
+        },
+        error:(error)=>console.log(error)
+      });
+   }
   }
+  onFileSelected(event:any) {
+    const file:File = event.target.files[0];
+    this.empcrud.fileUpload(file);
+}
 }

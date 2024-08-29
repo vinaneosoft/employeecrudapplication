@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Employee } from '../customclasses/employee';
+import { EmployeecrudService } from '../customservices/employeecrud.service';
 @Component({
   selector: 'app-neo-employee',
   templateUrl: './neo-employee.component.html',
@@ -8,15 +9,17 @@ import { Employee } from '../customclasses/employee';
 export class NeoEmployeeComponent {
 
   neoemployees:Employee[]=[];
-  constructor(){
+  constructor(private empcrud:EmployeecrudService){
    this.getEmployees();
   }
   getEmployees(){
-    this.neoemployees=[
-      new Employee(111,"Hari kumar", new Date('12-July-2004'), 90000, "LD", 30, "abc@gmail.com"),
-      new Employee(121,"Shama kumari", new Date('10-July-2004'), 98000, "JS", 25, "abc@gmail.com"),
-      new Employee(100,"Arun vaidya", new Date('18-Dec-2000'), 80000, "LD", 35, "abc@gmail.com"),
-    ]
+      const obs=this.empcrud.getAllEmployees();
+      obs.subscribe({
+        next:(data)=>{
+          this.neoemployees=data as Employee[];
+        },
+        error:(error)=>console.log(error)
+      });
   }
 
   // property value pair
