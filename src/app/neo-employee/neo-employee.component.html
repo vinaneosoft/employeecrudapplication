@@ -1,5 +1,6 @@
 <label for="cardColor">Select color for card</label> :
  <input type="color" [(ngModel)]="cardStyle.backgroundColor" id="cardColor">
 <article [ngClass]="flexClasses">
-    <app-employee-card  *ngFor="let employee of neoemployees" [employee]="employee" [cardStyle]="cardStyle"></app-employee-card>
+    <app-employee-card  *ngFor="let employee of neoemployees" [employee]="employee"
+     [cardStyle]="cardStyle" (eventEmitter)="deleteEmployee($event)"></app-employee-card> <!-- custom event binding-->
 </article>

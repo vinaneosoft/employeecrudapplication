@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Employee } from '../customclasses/employee';
 
 @Component({
@@ -13,8 +13,18 @@ export class EmployeeCardComponent {
   @Input()
   cardStyle={}; // initialization
 
+  @Output() // custom event emit
+  eventEmitter=new EventEmitter<number>(); //<string>
+
+
   cardLinks={
-    'card-link':true ,
-    'link':true
+    'btn':true,
+    'btn-success':true,
+    'm-2':true
   }
+
+  getAllEmps(){
+
+  }
+
 }

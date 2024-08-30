@@ -16,25 +16,21 @@ export class EmployeecrudService {
   addEmployee(employee:Employee){
     const obs= this.http.post(`${this.url2}/add`,employee);// backend // secure : url, body
     return obs;
-   /* obs.subscribe({
-    next:(data)=>{
-        return data;
-    },
-    error:(error)=>{
-        return error;
-    }
-   }) */
   }
   getAllEmployees(){
     //this.http.get(this.url1) for jsonserver as a backend
     const obs=this.http.get(`${this.url2}/getall`)
     return obs;
   }
-
+  deleteEmployeeById(_id:number){
+   // const obs=this.http.delete(`${this.url1}/${_id}`)
+    const obs=this.http.delete(`${this.url2}/delete/${_id}`)
+    return obs
+  }
   fileUpload(file:File){
     console.log(file);
     let formData=new FormData();
-    formData.append("profile_pic",file)
+    formData.append("employee_pic",file)
     const obs= this.http.post(`${this.url2}/fileadd`,formData); 
     obs.subscribe({
       next:(data)=>console.log(data),

@@ -8,7 +8,7 @@ export class Employee {
         public experience=0,
         public emp_email="",
         public secrete_code="123",
-        public employee_pic=new FileList()
+        public employee_pic=""
     ){}
 
     // instance method

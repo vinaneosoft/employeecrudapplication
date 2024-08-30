@@ -22,6 +22,18 @@ export class NeoEmployeeComponent {
       });
   }
 
+  deleteEmployee(_id:number){ // id:string
+    //console.log("in parent function", _id);
+    const obs=this.empcrud.deleteEmployeeById(_id);
+    obs.subscribe({
+      next:(data)=>{
+        window.alert("Employee Deleted Successfully....")
+        this.getEmployees();
+      },
+      error:(error)=>console.log(error)
+    });
+  }
+
   // property value pair
   cardStyle={
     width:"20rem",  // camel case 

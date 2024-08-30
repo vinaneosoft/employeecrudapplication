@@ -31,7 +31,6 @@ export class EmployeeFormComponent {
       emp_email:new FormControl("",[Validators.required, Validators.email]), //email
       secrete_code: new FormControl("123", [Validators.required, Validators.minLength(3), Validators.maxLength(6)]),
       confirmCode : new FormControl("",/* [CustomValidators.valueMatch2("123")] */),
-      employee_pic:new FormControl("",[Validators.required])
     } , [CustomValidators.valueMatch3("secrete_code", "confirmCode")]);
   }
   get eid(){
