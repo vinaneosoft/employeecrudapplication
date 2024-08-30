@@ -1,18 +1,11 @@
-<!--
-  public empId=0,
-        public empName="",
-        public joiningDate = new Date(),
-        public basicSalary=0,
-        public deptCode="",
-        public experience=0,
-        public employeePic='-->
+
 <article class="d-flex justify-content-center">
 <div class="w-50 border border-4 p-4">
-<h3 class="text-center"> Employee Input Form</h3>
-<form [formGroup]="employeeForm" enctype="multipart/form-data" (submit)="collectData()" class="p-2">
+<h3 class="text-center">Employee Form</h3>
+<form [formGroup]="employeeForm"  (submit)="collectData()" class="p-2">
     <div class="mb-3">
         <label for="empId" class="form-label">ID</label>
-        <input type="number" class="form-control" id="empId" formControlName="_id">
+        <input type="number" class="form-control" id="empId" formControlName="_id" [readonly]="activeRoute.snapshot.routeConfig?.path?.includes('editemployee')">
         <div class="text-danger text-bold" *ngIf="eid?.touched">  <!-- dirty-->
             <span *ngIf="eid?.hasError('required')">Id is required</span>
         </div>
@@ -67,10 +60,10 @@
           <span *ngIf="dcode?.hasError('required')">Department is required</span>
         </div>
       </div>
-      <div class="mb-3">
+  <!--     <div class="mb-3">
         <label for="employeePic" class="form-label" >Upload Image</label>
         <input type="file" (change)="onFileSelected($event)" class="form-control" id="employeePic">
-      </div> 
+      </div>  -->
       <div class="mb-3">
         <label for="secreteCode" class="form-label">Secrete Code</label>
         <input type="text" class="form-control" id="secreteCode" formControlName="secrete_code">
@@ -87,7 +80,7 @@
           <span *ngIf="employeeForm?.hasError('match')">Both code must match</span>
         </div>
       </div>
-    <button type="submit" class="btn btn-primary m-2" [disabled]="employeeForm.invalid" >SUBMIT</button>
+    <button type="submit" class="btn btn-primary m-2" [disabled]="employeeForm.invalid">SUBMIT</button>
     <button type="submit" class="btn btn-primary">RESET</button>
   </form>
 </div>

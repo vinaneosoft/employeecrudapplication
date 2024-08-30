@@ -8,6 +8,7 @@ import { file } from '@rxweb/reactive-form-validators';
   providedIn: 'root'
 })
 export class EmployeecrudService {
+  
 
   url1="http://localhost:6000/employees";
   url2="http://localhost:5000/employees";
@@ -17,9 +18,19 @@ export class EmployeecrudService {
     const obs= this.http.post(`${this.url2}/add`,employee);// backend // secure : url, body
     return obs;
   }
+  updateEmployee(employee: Employee) {
+    //const obs=this.http.put(`${this.url1}/${employee._id}`,employee)
+    const obs= this.http.put(`${this.url2}/update/${employee._id}`,employee);// backend // secure : url, body
+    return obs;
+  }
   getAllEmployees(){
     //this.http.get(this.url1) for jsonserver as a backend
     const obs=this.http.get(`${this.url2}/getall`)
+    return obs;
+  }
+  getEmployeeById(_id:number){
+  //  const obs=this.http.get(`${this.url1}/${_id}`) //for jsonserver as a backend
+    const obs=this.http.get(`${this.url2}/get/${_id}`)
     return obs;
   }
   deleteEmployeeById(_id:number){

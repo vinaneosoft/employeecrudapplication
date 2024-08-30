@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidators } from '../customclasses/custom-validators';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../customclasses/employee';
 import { EmployeecrudService } from '../customservices/employeecrud.service';
 @Component({
@@ -12,17 +12,19 @@ import { EmployeecrudService } from '../customservices/employeecrud.service';
 export class EmployeeFormComponent {
   deptcodes =['LD','JS','PHP','HR','JAVA']
   employeeForm:FormGroup;
-  employee:any;
-  constructor(public activeRoute:ActivatedRoute, private empcrud:EmployeecrudService) // DI
+  employee:any
+ 
+  constructor(private router :Router, public activeRoute:ActivatedRoute, private empcrud:EmployeecrudService) // DI
   {
-   //const routerParameter=this.activeRoute.snapshot.paramMap.get('empId');
-   const routerParameter=this.activeRoute.snapshot.params['empId']
-   console.log(routerParameter);
-   
-
-    // use this id to search the employee and take it from backend /  search the employee in angular store
+    console.log();
+    
+   const routerParameter=this.activeRoute.snapshot.paramMap.get('empId');
+   if(routerParameter!=null){
+      let _id=parseInt(routerParameter);
+      this.getEmployee(_id);
+    }
     this.employeeForm=new FormGroup({
-      _id:new FormControl(routerParameter,[Validators.required]), //invalid {required: true}, validation pass null
+      _id:new FormControl("",[Validators.required]), //invalid {required: true}, validation pass null
       emp_name:new FormControl("", [Validators.required, Validators.pattern("[A-Za-z ]*"), Validators.minLength(2)]), // pattern, minlength
       emp_salary:new FormControl("", [Validators.required, Validators.min(0)]),
       dept_code:new FormControl("JS",[Validators.required]),
@@ -63,18 +65,42 @@ export class EmployeeFormComponent {
   collectData(){
    //console.log(this.employeeForm)
    this.employee=this.employeeForm.value;
-   console.log(this.employee);
+  // console.log(this.employee);
    if(this.activeRoute.snapshot.routeConfig?.path=="addemployee"){
       const obs=this.empcrud.addEmployee(this.employee); // crud service
       obs.subscribe({
         next:(data)=>{ 
          this.employee= data as Employee; 
           window.alert(`Employee with id ${this.employee._id} added successfully...`); 
+          this.router.navigate(["/employees"])
         },
         error:(error)=>console.log(error)
       });
    }
+   else{
+    const obs=this.empcrud.updateEmployee(this.employee); // crud service
+    obs.subscribe({
+      next:(data)=>{ 
+        //console.log("update: ",data);  
+        window.alert(`Employee with id ${this.employee._id} updated successfully...`); 
+        this.router.navigate(["/employees"])
+      },
+      error:(error)=>console.log(error)
+    });
+   }
   }
+  getEmployee(_id:number){
+    const obs=this.empcrud.getEmployeeById(_id)
+      obs.subscribe({
+        next:(data)=>{ 
+         this.employee= data as Employee;
+         let jd=this.employee.joining_date;  
+         this.employee.joining_date=jd.slice(0,jd.length-2); 
+         this.employeeForm.patchValue(this.employee);
+        },
+        error:(error)=>console.log(error)
+      });
+  } 
   onFileSelected(event:any) {
     const file:File = event.target.files[0];
     this.empcrud.fileUpload(file);
