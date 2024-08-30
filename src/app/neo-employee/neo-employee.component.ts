@@ -8,7 +8,9 @@ import { EmployeecrudService } from '../customservices/employeecrud.service';
 })
 export class NeoEmployeeComponent {
 
+  notFoundMessage="";
   neoemployees:Employee[]=[];
+  employee:any;
   constructor(private empcrud:EmployeecrudService){
    this.getEmployees();
   }
@@ -37,7 +39,27 @@ export class NeoEmployeeComponent {
         });
       }
   }
-
+  getId(_id:string){
+    if(_id!=""){
+      const obs=this.empcrud.getEmployeeById(parseInt(_id));
+      obs.subscribe({
+        next:(data)=>{
+          this.employee=data as Employee;
+          if(this.employee!=null){
+            this.neoemployees=[this.employee];
+            this.notFoundMessage="";
+          }
+          else{
+            this.notFoundMessage="NOT FOUND"
+          }
+        },
+        error:(error)=>console.log(error)
+      });
+    }
+    else{
+      this.getEmployees();
+    }
+  }
   // property value pair
   cardStyle={
     width:"20rem",  // camel case 

@@ -13,11 +13,10 @@ export class EmployeeFormComponent {
   deptcodes =['LD','JS','PHP','HR','JAVA']
   employeeForm:FormGroup;
   employee:any
- 
+  currentRoute:string | undefined ="";
   constructor(private router :Router, public activeRoute:ActivatedRoute, private empcrud:EmployeecrudService) // DI
   {
-    console.log();
-    
+   this.currentRoute=this.activeRoute.snapshot.routeConfig?.path;
    const routerParameter=this.activeRoute.snapshot.paramMap.get('empId');
    if(routerParameter!=null){
       let _id=parseInt(routerParameter);
@@ -66,7 +65,7 @@ export class EmployeeFormComponent {
    //console.log(this.employeeForm)
    this.employee=this.employeeForm.value;
   // console.log(this.employee);
-   if(this.activeRoute.snapshot.routeConfig?.path=="addemployee"){
+   if(this.currentRoute=="addemployee"){
       const obs=this.empcrud.addEmployee(this.employee); // crud service
       obs.subscribe({
         next:(data)=>{ 

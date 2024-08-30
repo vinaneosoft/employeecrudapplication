@@ -5,7 +5,7 @@
 <form [formGroup]="employeeForm"  (submit)="collectData()" class="p-2">
     <div class="mb-3">
         <label for="empId" class="form-label">ID</label>
-        <input type="number" class="form-control" id="empId" formControlName="_id" [readonly]="activeRoute.snapshot.routeConfig?.path?.includes('editemployee')">
+        <input type="number" class="form-control" id="empId" formControlName="_id" [readonly]="currentRoute?.includes('editemployee')">
         <div class="text-danger text-bold" *ngIf="eid?.touched">  <!-- dirty-->
             <span *ngIf="eid?.hasError('required')">Id is required</span>
         </div>
