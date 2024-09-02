@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { Employee } from '../customclasses/employee';
 
 @Component({
@@ -6,7 +6,7 @@ import { Employee } from '../customclasses/employee';
   templateUrl: './employee-card.component.html',
   styleUrl: './employee-card.component.css'
 })
-export class EmployeeCardComponent {
+export class EmployeeCardComponent  {
   @Input()
   employee=new Employee(); // initialization
 
@@ -15,16 +15,12 @@ export class EmployeeCardComponent {
 
   @Output() // custom event emit
   eventEmitter=new EventEmitter<number>(); //<string>
-
-
   cardLinks={
     'btn':true,
     'btn-success':true,
     'm-2':true
   }
 
-  getAllEmps(){
-
-  }
-
+  
+ 
 }

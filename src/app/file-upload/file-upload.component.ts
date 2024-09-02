@@ -11,24 +11,30 @@ export class FileUploadComponent {
 
   _id=0;
   employee_pic:any;
+  uploadError="";
   constructor(public activeRoute:ActivatedRoute, public empcrud:EmployeecrudService){
     let routeParam=activeRoute.snapshot.paramMap.get('_id')
     if(routeParam!=null)
         this._id=parseInt(routeParam);
-      console.log(this._id);
+      //console.log(this._id);
       
   }
   setFile(event:any){
-    console.log(event.target.files[0]);
+   // console.log(event.target.files[0]);
     this.employee_pic=event.target.files[0]
+    this.uploadError=""
   }
 
   fileUp(){
     // service function fileUpload : id, file
-    const obs=this.empcrud.fileUpload(this._id,this.employee_pic);
-    obs.subscribe({
+    if(this.employee_pic==undefined)  
+      this.uploadError="Please select the file to upload"
+    else{   
+      const obs=this.empcrud.fileUpload(this._id,this.employee_pic);
+      obs.subscribe({
       next:(data)=>window.alert("Image uploaded successfully..."),
       error:(er)=>console.log(er)
-    })
+    }) 
+    }
   }
 }

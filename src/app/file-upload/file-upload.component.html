@@ -1,5 +1,8 @@
 <div class="mb-3">
     <label for="employee_pic" class="form-label">Upload Image</label>
     <input type="file" class="form-control" id="employee_pic" (change)="setFile($event)">
+    <div>
+        <b class="text-danger">{{uploadError}}</b>
+    </div>
     <button type="button" class="btn btn-primary m-2" (click)="fileUp()">UPLOAD</button>
 </div> 

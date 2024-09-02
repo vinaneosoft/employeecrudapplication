@@ -10,7 +10,10 @@ export class Employee {
         public secrete_code="123",
         public employee_pic:any=""
         ){}
-
+        static getImage(arrayBuffer:any){
+            const base64String = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
+            return base64String;
+        }
     // instance method
 }
 

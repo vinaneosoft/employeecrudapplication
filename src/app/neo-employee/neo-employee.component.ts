@@ -19,6 +19,7 @@ export class NeoEmployeeComponent {
       obs.subscribe({
         next:(data)=>{
           this.neoemployees=data as Employee[];
+          console.log(this.neoemployees);
         },
         error:(error)=>console.log(error)
       });
