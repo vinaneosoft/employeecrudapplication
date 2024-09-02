@@ -41,7 +41,7 @@ export class EmployeecrudService {
   fileUpload(_id:number, employee_pic:any){
     let formData=new FormData();
     formData.append("employee_pic",employee_pic)
-    const obs= this.http.put(`${this.url2}/fileupload/${_id}`,formData); 
+    const obs= this.http.put(`${this.url2}/upload/${_id}`,formData); 
     return obs;
   }
 }
