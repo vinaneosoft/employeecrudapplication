@@ -38,14 +38,10 @@ export class EmployeecrudService {
     const obs=this.http.delete(`${this.url2}/delete/${_id}`)
     return obs
   }
-  fileUpload(file:File){
-    console.log(file);
+  fileUpload(_id:number, employee_pic:any){
     let formData=new FormData();
-    formData.append("employee_pic",file)
-    const obs= this.http.post(`${this.url2}/fileadd`,formData); 
-    obs.subscribe({
-      next:(data)=>console.log(data),
-      error:(err)=>console.log(err)
-    })
+    formData.append("employee_pic",employee_pic)
+    const obs= this.http.put(`${this.url2}/fileupload/${_id}`,formData); 
+    return obs;
   }
 }

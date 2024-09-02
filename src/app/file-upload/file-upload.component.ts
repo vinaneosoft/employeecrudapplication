@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { EmployeecrudService } from '../customservices/employeecrud.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -10,7 +11,7 @@ export class FileUploadComponent {
 
   _id=0;
   employee_pic:any;
-  constructor(public activeRoute:ActivatedRoute){
+  constructor(public activeRoute:ActivatedRoute, public empcrud:EmployeecrudService){
     let routeParam=activeRoute.snapshot.paramMap.get('_id')
     if(routeParam!=null)
         this._id=parseInt(routeParam);
@@ -24,5 +25,10 @@ export class FileUploadComponent {
 
   fileUp(){
     // service function fileUpload : id, file
+    const obs=this.empcrud.fileUpload(this._id,this.employee_pic);
+    obs.subscribe({
+      next:(data)=>window.alert("Image uploaded successfully..."),
+      error:(er)=>console.log(er)
+    })
   }
 }
