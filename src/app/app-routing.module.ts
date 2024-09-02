@@ -11,6 +11,7 @@ import { LearningComponent } from './learning/learning.component';
 import { authenticationGuard } from './guards/Guards';
 import { CounterService } from './customservices/counter.service';
 import { UpperCasePipe } from '@angular/common';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 const webwerksChilds:Routes=[
   {
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path:"adminlogin",
     component:AdminLoginComponent
+  },
+  {
+    path:'fileupload/:_id',
+    component:FileUploadComponent
   },
   {
     path:'**',

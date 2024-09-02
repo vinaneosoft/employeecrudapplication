@@ -21,6 +21,7 @@ import { NeosoftComponent } from './neosoft/neosoft.component';
 import { WebwerksComponent } from './webwerks/webwerks.component';
 import {provideHttpClient } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 // decorator
@@ -40,7 +41,8 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
     ViewNotFoundComponent,
     AdminLoginComponent,
     NeosoftComponent,
-    WebwerksComponent
+    WebwerksComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,     // modules

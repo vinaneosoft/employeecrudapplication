@@ -1,6 +1,7 @@
 
 <div class="card" [ngStyle]="cardStyle">
   <img src="../../resources/sampleemployee.jpg" class="card-img-top" alt="..." height="180">
+  <a  [routerLink]="['../fileupload',employee._id]">edit pic</a>
   <div class="card-body">
     <h6 class="card-title" [ngStyle]="{color:'blue', 'text-decoration':'underline'}"  >#{{employee._id}}</h6>
     <h5 class="card-title">{{employee.emp_name| uppercase}}</h5>
