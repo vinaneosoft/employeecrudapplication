@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { DatePipe } from '@angular/common';
-
+//1. if u have standalone component, then we can import other modules like below
+//import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 @Component({
   selector: 'app-learning',
   templateUrl: './learning.component.html',
-  styleUrl: './learning.component.css'
+  styleUrl: './learning.component.css',
+ // imports:[MatSlideToggleModule]
 })
 export class LearningComponent {
-
+  sampleToggle=false;
   inputType="text";
 
   message="Welcome to Neosoft";
@@ -76,6 +78,10 @@ export class LearningComponent {
       let newFormat=this.datePipe.transform(this.today, "fullDate")
       console.log(newFormat);
       
+  }
+  test2(){
+    console.log(this.sampleToggle);
+    
   }
   rupees="INR"
 

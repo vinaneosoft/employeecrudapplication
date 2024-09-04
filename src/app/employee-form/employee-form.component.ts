@@ -69,9 +69,13 @@ export class EmployeeFormComponent {
       const obs=this.empcrud.addEmployee(this.employee); // crud service
       obs.subscribe({
         next:(data)=>{ 
-         this.employee= data as Employee; 
+        if(data ==null)
+          window.alert("Employee insertion failed...");
+        else{
+          this.employee= data as Employee; 
           window.alert(`Employee with id ${this.employee._id} added successfully...`); 
           this.router.navigate(["/employees"])
+          }
         },
         error:(error)=>console.log(error)
       });

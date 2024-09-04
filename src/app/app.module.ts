@@ -22,8 +22,18 @@ import { WebwerksComponent } from './webwerks/webwerks.component';
 import {provideHttpClient } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { FileUploadComponent } from './file-upload/file-upload.component';
-
-
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './counter.reducer';
+import { MyCounterComponent } from './my-counter/my-counter.component';
+import { IncrementComponent } from './storeexample/increment/increment.component';
+import { DecrementComponent } from './storeexample/decrement/decrement.component';
+import { ResetComponent } from './storeexample/reset/reset.component';
 // decorator
 @NgModule({
   declarations: [
@@ -42,13 +52,20 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     AdminLoginComponent,
     NeosoftComponent,
     WebwerksComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    MyCounterComponent,
+    IncrementComponent,
+    DecrementComponent,
+    ResetComponent
   ],
   imports: [
-    BrowserModule,     // modules
-    AppRouteModule, FormsModule, ReactiveFormsModule,RxReactiveFormsModule
+    BrowserModule, MatSlideToggleModule, MatButtonModule,MatTooltipModule, MatIconModule,
+    AppRouteModule, FormsModule, ReactiveFormsModule,RxReactiveFormsModule, MatInputModule, 
+    StoreModule.forRoot({ count: counterReducer })
   ],
-  providers: [DatePipe, provideHttpClient()],     // services
+  providers: [DatePipe, provideHttpClient(), provideAnimationsAsync()],     // services
   bootstrap: [AppComponent]  // root component
 })
 export class AppModule { }
+
+//<mat-icon>edit</mat-icon>

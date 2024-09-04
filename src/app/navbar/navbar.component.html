@@ -1,19 +1,19 @@
 <nav class="navbar navbar-expand-md bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="home">{{brandName}}</a>
+      <a class="navbar-brand" routerLink="home" ><span>{{brandName}}</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" routerLink="home" routerLinkActive="activeLink">Home</a>
+            <a class="nav-link" routerLink="home" routerLinkActive="activeLink">Home <mat-icon aria-hidden="false"  fontIcon="home"></mat-icon></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="employees" routerLinkActive="activeLink">Show Employees</a>
           </li>
-          <li class="nav-item"   >
-            <a class="nav-link" routerLink="addemployee" routerLinkActive="activeLink">ADD NEW</a>
+          <li class="nav-item" >
+            <a class="nav-link" matTooltipHideDelay="1000"  matTooltip="add new employee" routerLink="addemployee" routerLinkActive="activeLink">ADD NEW</a>
           </li>
         </ul>
         <form class="d-flex" role="search">

@@ -22,19 +22,16 @@ export class FileUploadComponent {
   setFile(event:any){
    // console.log(event.target.files[0]);
     this.employee_pic=event.target.files[0]
-    this.uploadError=""
+  
   }
-
   fileUp(){
     // service function fileUpload : id, file
-    if(this.employee_pic==undefined)  
-      this.uploadError="Please select the file to upload"
-    else{   
+    if(this.employee_pic!=undefined)  {
       const obs=this.empcrud.fileUpload(this._id,this.employee_pic);
       obs.subscribe({
       next:(data)=>window.alert("Image uploaded successfully..."),
       error:(er)=>console.log(er)
     }) 
-    }
   }
+}
 }

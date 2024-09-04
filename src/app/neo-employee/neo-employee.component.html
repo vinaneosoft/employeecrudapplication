@@ -3,8 +3,11 @@
 <input type="color" [(ngModel)]="cardStyle.backgroundColor" id="cardColor">
 </div>
 <div class="d-inline-block m-2">
-    <label for="_id">Enter Employee ID to search:</label>
-    <input  type="number" placeholder="Search" id="_id" (keyup)="getId(idNode.value)" #idNode>
+    <mat-label>Employee ID : </mat-label>
+    <mat-form-field > 
+        <input matInput  type="text" placeholder="Search" id="_id" (keyup)="getId(idNode.value)" #idNode> 
+        <mat-icon aria-hidden="false"  fontIcon="search" matSuffix></mat-icon>
+    </mat-form-field>
     <b class="text-danger">{{notFoundMessage}}</b>
 </div>
 

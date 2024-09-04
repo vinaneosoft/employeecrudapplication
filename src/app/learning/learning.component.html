@@ -252,4 +252,9 @@ but templates will be added where we are checking the condition-->
             {{birthdate | date :'fullDate' }}
         </li>
     </ol>
+    <hr>
+    <mat-slide-toggle [(ngModel)]="sampleToggle" (change)="test2()" > TOGGLE </mat-slide-toggle>
+    <p>
+        {{sampleToggle}}
+    </p>
 </div>

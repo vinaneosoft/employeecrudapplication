@@ -80,8 +80,8 @@
           <span *ngIf="employeeForm?.hasError('match')">Both code must match</span>
         </div>
       </div>
-    <button type="submit" class="btn btn-primary m-2" [disabled]="employeeForm.invalid">SUBMIT</button>
-    <button type="submit" class="btn btn-primary">RESET</button>
+    <button type="submit"  matTooltip="submit this form" mat-raised-button  [disabled]="employeeForm.invalid">SUBMIT</button>
+    <button type="reset"  matTooltipPosition="right" matTooltip="reset this form" mat-raised-button >RESET</button>
   </form>
 </div>
 </article>
