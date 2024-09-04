@@ -1,6 +1,6 @@
 
 <div class="card" [ngStyle]="cardStyle">
-  <img [src]="employee.employee_pic!=null ? ('data:image/png;base64,'+employee.employee_pic) : ('../resources/sampleemployee.jpg')"
+  <img [src]="employee.employee_pic!=null ? ('data:image/png;base64,'+employee.employee_pic.data) : ('../resources/sampleemployee.jpg')"
   class="card-img-top" alt="..." height="180">
   <a  [routerLink]="['../fileupload',employee._id]">edit pic</a>
   <div class="card-body">

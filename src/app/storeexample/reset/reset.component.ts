@@ -18,4 +18,7 @@ export class ResetComponent {
   reset(){
     this.store.dispatch(reset())
   }
+  normalReset(){
+    this.normalCount3=this.normalService.resetCounter();
+  }
 }

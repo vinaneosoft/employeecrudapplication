@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { startWith, tap, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {  // u can rename class names
-  title = 'employeecrudapplication';
+title = 'employeecrudapplication';
   company="";
+
 }
