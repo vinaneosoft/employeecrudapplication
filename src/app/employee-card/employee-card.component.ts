@@ -20,7 +20,7 @@ export class EmployeeCardComponent  {
     'btn-success':true,
     'm-2':true
   }
-
+cardLiks2=['btn','btn-success','m-2']
   
  
 }

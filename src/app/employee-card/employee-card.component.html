@@ -14,7 +14,7 @@
     <li class="list-group-item">Experience : <span>{{employee.experience}}</span> years</li>
   </ul>
   <div class="card-body d-flex justify-content-between">
-    <a title="edit"  [routerLink]="['../editemployee',employee._id]" [ngClass]="cardLinks">
+    <a title="edit"  [routerLink]="['../editemployee',employee._id]" [ngClass]="cardLiks2">
       <mat-icon aria-hidden="false"  fontIcon="edit"></mat-icon>
     </a>  <!-- shift cardLinks from parent to child-->
     <button title="delete" type="button" (click)="eventEmitter.emit(employee._id)" class="btn btn-danger">
